@@ -1,0 +1,2 @@
+class HouseLike < ApplicationRecord
+end

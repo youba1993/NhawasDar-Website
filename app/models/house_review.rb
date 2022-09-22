@@ -1,0 +1,2 @@
+class HouseReview < ApplicationRecord
+end
