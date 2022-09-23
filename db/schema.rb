@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_20_061136) do
+ActiveRecord::Schema.define(version: 2022_09_23_230457) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,12 @@ ActiveRecord::Schema.define(version: 2022_09_20_061136) do
     t.datetime "sign_data"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
+    t.bigint "house_id"
+    t.bigint "landlord_id"
+    t.index ["house_id"], name: "index_contracts_on_house_id"
+    t.index ["landlord_id"], name: "index_contracts_on_landlord_id"
+    t.index ["user_id"], name: "index_contracts_on_user_id"
   end
 
   create_table "house_images", force: :cascade do |t|
@@ -29,25 +35,35 @@ ActiveRecord::Schema.define(version: 2022_09_20_061136) do
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "house_id"
+    t.index ["house_id"], name: "index_house_images_on_house_id"
   end
 
   create_table "house_likes", force: :cascade do |t|
     t.integer "count"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
+    t.bigint "house_id"
+    t.index ["house_id"], name: "index_house_likes_on_house_id"
+    t.index ["user_id"], name: "index_house_likes_on_user_id"
   end
 
   create_table "house_reviews", force: :cascade do |t|
     t.text "comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
+    t.bigint "house_id"
+    t.index ["house_id"], name: "index_house_reviews_on_house_id"
+    t.index ["user_id"], name: "index_house_reviews_on_user_id"
   end
 
   create_table "houses", force: :cascade do |t|
     t.string "adress"
     t.integer "square_footage"
     t.integer "price"
-    t.string "type"
+    t.string "house_type"
     t.integer "num_beds"
     t.integer "num_baths"
     t.boolean "air_cond"
@@ -55,6 +71,8 @@ ActiveRecord::Schema.define(version: 2022_09_20_061136) do
     t.boolean "furnished"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "landlord_id"
+    t.index ["landlord_id"], name: "index_houses_on_landlord_id"
   end
 
   create_table "landlords", force: :cascade do |t|

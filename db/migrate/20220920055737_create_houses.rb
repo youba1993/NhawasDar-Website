@@ -4,7 +4,7 @@ class CreateHouses < ActiveRecord::Migration[6.1]
       t.string :adress
       t.integer :square_footage
       t.integer :price
-      t.string :type
+      t.string  :type
       t.integer :num_beds
       t.integer :num_baths
       t.boolean :air_cond

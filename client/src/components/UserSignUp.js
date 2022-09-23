@@ -49,7 +49,7 @@ function UserSignUp() {
             <br/>
             <label >  *password:  </label>
             <br/>
-            <input type="password" name="password" value={formSignUp.password} required onChange={(e) => {handleChange(e)}} />
+            <input type="password"  name="password" value={formSignUp.password} required onChange={(e) => {handleChange(e)}} />
             <br/>
             <label >  *password confirmation:  </label>
             <br/>

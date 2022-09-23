@@ -1,5 +1,6 @@
 class Landlord < ApplicationRecord
     has_secure_password
+    
     validates :email, uniqueness: true
     validates :company_name , uniqueness: true
     validates :company_phone, uniqueness: true
