@@ -1,23 +1,33 @@
-import logo from './logo.svg';
+
 import './App.css';
+import LandlordLogin from './components/LandlordLogin';
+import UserLogin from './components/UserLogin';
+import {useState} from 'react';
+import UserSignUp from './components/UserSignUp';
+import LandlordSignUp from './components/LandlordSignUp';
 
 function App() {
+  const [logIn, setLogIn] = useState(false);
+  const [signUp, setSignUp] = useState(false);
+
+  function toggleLogIn() {
+    setLogIn(!logIn)
+  }
+
+  function toggleSignUp() {
+    setSignUp(!signUp)
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button onClick={toggleLogIn}>Choose Login Role</button>
+      {logIn? <UserLogin />:<LandlordLogin />}
+      <br/>
+      ----------------------------------------------------
+      <br/>
+      <button onClick={toggleSignUp}>Choose Signup Role</button>
+      {signUp? <UserSignUp />:<LandlordSignUp />}
+
     </div>
   );
 }
