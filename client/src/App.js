@@ -5,29 +5,46 @@ import UserLogin from './components/UserLogin';
 import {useState} from 'react';
 import UserSignUp from './components/UserSignUp';
 import LandlordSignUp from './components/LandlordSignUp';
+import NavBar from './components/NavBar';
+import MainPageSearch from './components/MainPageSearch';
 
 function App() {
-  const [logIn, setLogIn] = useState(false);
-  const [signUp, setSignUp] = useState(false);
+  const [logInU, setLogInU] = useState(false);
+  const [logInL, setLogInL] = useState(false);
+  const [signUpU, setSignUpU] = useState(false);
+  const [signUpL, setSignUpL] = useState(false);
 
-  function toggleLogIn() {
-    setLogIn(!logIn)
+  function toggleLogInU() {
+    setLogInU(!logInU)
+    setLogInL(false)
+  }
+  function toggleLogInL() {
+    setLogInL(!logInL)
+    setLogInU(false)
   }
 
-  function toggleSignUp() {
-    setSignUp(!signUp)
+  function toggleSignUpU() {
+    setSignUpU(!signUpU)
+    setSignUpL(false)
+  }
+
+  function toggleSignUpL() {
+    setSignUpL(!signUpL)
+    setSignUpU(false)
   }
 
   return (
     <div className="App">
-      <button onClick={toggleLogIn}>Choose Login Role</button>
-      {logIn? <UserLogin />:<LandlordLogin />}
+      <NavBar toggleLogInU={toggleLogInU}  toggleLogInL={toggleLogInL} toggleSignUpL={toggleSignUpL} toggleSignUpU={toggleSignUpU} />
       <br/>
-      ----------------------------------------------------
+      <MainPageSearch />
       <br/>
-      <button onClick={toggleSignUp}>Choose Signup Role</button>
-      {signUp? <UserSignUp />:<LandlordSignUp />}
+      { logInU? <UserLogin />:""}
+      { logInL? <LandlordLogin />:""}
 
+      { signUpL? <LandlordSignUp />:""}
+      { signUpU? <UserSignUp />:""}
+      
     </div>
   );
 }

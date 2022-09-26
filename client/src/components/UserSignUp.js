@@ -1,4 +1,7 @@
 import React, {useState} from 'react';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+
 
 function UserSignUp() {
 
@@ -32,35 +35,52 @@ function UserSignUp() {
     }
 
     return (
-        <div>
-            <form onSubmit={(e) => {handleSubmit(e)}}>
-            <h2> Signup User </h2>
-            <label >  *first name:  </label>
-            <br/>
-            <input type="text" name="first_name" value={formSignUp.first_name} required onChange={(e) => {handleChange(e)}} />
-            <br/>
-            <label >  *last name:  </label>
-            <br/>
-            <input type="text" name="last_name" value={formSignUp.last_name} required onChange={(e) => {handleChange(e)}} />
-            <br/>
-            <label >  *email:  </label>
-            <br/>
-            <input type="text" name="email" value={formSignUp.email} required onChange={(e) => {handleChange(e)}} />
-            <br/>
-            <label >  *password:  </label>
-            <br/>
-            <input type="password"  name="password" value={formSignUp.password} required onChange={(e) => {handleChange(e)}} />
-            <br/>
-            <label >  *password confirmation:  </label>
-            <br/>
-            <input type="password" name="password_confirmation" value={formSignUp.password_confirmation} required onChange={(e) => {handleChange(e)}} />
-            <br/>
-            <input type="submit" value="Submit"/>
-            </form>
-            
+        <div style={{   display: 'block', 
+                        width: 500, 
+                        padding: 40 
+                        }}>
+
+        <Form onSubmit={(e) => {handleSubmit(e)}}>
+        <Form.Group>
+
+         <Form.Label>First name :</Form.Label>
+         <Form.Control required type="text" placeholder="First name"
+                        name="first_name" value={formSignUp.first_name} onChange={(e) => {handleChange(e)}}
+                        />
+        
+        </Form.Group>
+
+        <Form.Group >
+        <Form.Label>Last name :</Form.Label>
+        <Form.Control required type="text" placeholder="Last name"
+                        name="last_name" value={formSignUp.last_name} onChange={(e) => {handleChange(e)}}
+                        />
+        </Form.Group>
+
+        <Form.Group >
+        <Form.Label>Email :</Form.Label>
+        <Form.Control required type="email" placeholder="example@email.com"
+                        name="email" value={formSignUp.email} onChange={(e) => {handleChange(e)}}
+                        />
+        </Form.Group>
+       
+        <Form.Group >
+        <Form.Label>Password :</Form.Label>
+        <Form.Control required type="password" placeholder="Password"
+                        name="password" value={formSignUp.password} onChange={(e) => {handleChange(e)}}
+                        />
+        </Form.Group>
+        <Form.Group >
+        <Form.Label>Confirme Password :</Form.Label>
+        <Form.Control required type="password" placeholder="Confirme Password"
+                        name="password_confirmation" value={formSignUp.password_confirmation} onChange={(e) => {handleChange(e)}}
+                        />
+        </Form.Group>
+        <br/>
+        <Button type="submit">Submit</Button>
+        </Form>
         </div>
     )
-
 }
 
 export default UserSignUp;
