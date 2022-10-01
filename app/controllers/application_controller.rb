@@ -47,6 +47,15 @@ class ApplicationController < ActionController::API
     end
   end
 
+  def profile 
+    if current_user
+      render json: { user: UserSerializer.new(current_user) }, status: :accepted
+    elsif current_landlord
+      render json: { user: LandlordSerializer.new(current_landlord) }, status: :accepted
+    else false
+    end
+  end 
+
   def authorized
     render json: { message: 'Please log in' }, status: :unauthorized unless logged_in?
   end

@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
-  resources :houses,only: [:create, :index]
+  resources :houses,only: [:create, :index, :show, :update, :destroy]
   resources :landlords, only: [:create]
   resources :users, only: [:create]
   
-  get '/user_profile', to: 'users#profile'
-  get '/landlord_profile', to: 'landlords#profile'
+  get '/profile', to: 'application#profile'
   post '/user_login', to: 'auth#user_create'
   post '/landlord_login', to: 'auth#landlord_create'
 

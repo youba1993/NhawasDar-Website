@@ -1,10 +1,6 @@
 class LandlordsController < ApplicationController
   skip_before_action :authorized, only: [:create]
 
-  def profile
-    render json: { user: LandlordSerializer.new(current_landlord) }, status: :accepted
-  end
-
   def create
     @landlord = Landlord.create(landlord_params)
     if @landlord.valid?

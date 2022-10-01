@@ -7,6 +7,7 @@ import UserSignUp from './components/UserSignUp';
 import LandlordSignUp from './components/LandlordSignUp';
 import NavBar from './components/NavBar';
 import MainPageSearch from './components/MainPageSearch';
+import HousesIndex from './components/HousesIndex';
 
 function App() {
   const [logInU, setLogInU] = useState(false);
@@ -44,6 +45,8 @@ function App() {
 
       { signUpL? <LandlordSignUp />:""}
       { signUpU? <UserSignUp />:""}
+
+      <HousesIndex />
       
     </div>
   );

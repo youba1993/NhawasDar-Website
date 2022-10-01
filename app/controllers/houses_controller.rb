@@ -1,7 +1,9 @@
 class HousesController < ApplicationController
+  skip_before_action :authorized, only: [:index, :show]
+
   def index
     house = House.all
-    render json:  house 
+    render json: house , status: 200
   end
 
   def create
@@ -11,6 +13,18 @@ class HousesController < ApplicationController
     else
       render json: { error: 'failed to add house' }, status: :unprocessable_entity
     end
+  end
+
+  def show
+    
+  end
+
+  def update
+
+  end
+
+  def destroy
+
   end
 
   private
