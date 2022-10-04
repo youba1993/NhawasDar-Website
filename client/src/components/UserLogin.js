@@ -1,9 +1,5 @@
 import React, { useState } from 'react';
-import Col from 'react-bootstrap/Col';
-import Form from 'react-bootstrap/Form';
-import Row from 'react-bootstrap/Row';
-import Button from 'react-bootstrap/Button';
-import Container from 'react-bootstrap/Container';
+
 
 function UserLogin() {
 
@@ -34,31 +30,26 @@ function UserLogin() {
   }
 
   return (
-    <Container>
-      <h1>User </h1>
-      <Form onSubmit={(e) => { handleSubmit(e) }}>
-        <Form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
-          <Form.Label column sm="2">
-            Email
-          </Form.Label>
-          <Col sm="10">
-            <Form.Control name="email" value={formDataIn.email} required onChange={(e) => { handleChange(e) }} />
-          </Col>
-        </Form.Group>
-
-        <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
-          <Form.Label column sm="2">
-            Password
-          </Form.Label>
-          <Col sm="10">
-            <Form.Control type="password" name="password" value={formDataIn.password} required onChange={(e) => { handleChange(e) }} placeholder="Password" />
-          </Col>
-        </Form.Group>
-        <Button variant="primary" type="submit">
-          Submit
-        </Button>
-      </Form>
-    </Container>
+    <div className="col-md-6 offset-md-3 mt-5">
+      <div className="card">
+        <h4 className="card-header">Renter Login</h4>
+        <div className="card-body">
+          <form onSubmit={(e) => { handleSubmit(e) }}>
+            <div className="form-group">
+              <label>Email</label>
+              <input name="email" value={formDataIn.email} required onChange={(e) => { handleChange(e) }} />
+            </div>
+            <div className="form-group">
+              <label>Password</label>
+              <input type="password" name="password" value={formDataIn.password} required onChange={(e) => { handleChange(e) }} placeholder="Password" />
+            </div>
+            <button type="submit" className="btn btn-primary">
+              Login
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
 
   )
 

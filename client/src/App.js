@@ -35,7 +35,16 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className="p-5 bg-image" style={{
+      backgroundImage: `url(https://www.nationsonline.org/gallery/Algeria/Assekrem-Hoggar-mountains-Algeria.jpg)`,
+      backgroundRepeat: "no-repeat",
+      backgroundPosition: 'center',
+      backgroundSize: "cover",
+      backgroundAttachment: "fixed",
+      width: '100vw',
+      height: '100vh'
+      }}>
+    
       <NavBar toggleLogInU={toggleLogInU}  toggleLogInL={toggleLogInL} toggleSignUpL={toggleSignUpL} toggleSignUpU={toggleSignUpU} />
       <br/>
       <MainPageSearch />
@@ -49,6 +58,7 @@ function App() {
       <HousesIndex />
       
     </div>
+    
   );
 }
 
