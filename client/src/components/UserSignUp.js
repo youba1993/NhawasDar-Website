@@ -1,7 +1,4 @@
 import React, {useState} from 'react';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-
 
 function UserSignUp() {
 
@@ -35,51 +32,44 @@ function UserSignUp() {
     }
 
     return (
-        <div style={{   display: 'block', 
-                        width: 500, 
-                        padding: 40 
-                        }}>
+        <div className="col-md-6 offset-md-3 mt-5">
+        <div className="card">
+            <h4 className="card-header">Renter Signup</h4>
+            <div className="card-body">
+                <form className="row row-cols-lg-auto g-3" onSubmit={(e) => { handleSubmit(e) }}>
 
-        <Form onSubmit={(e) => {handleSubmit(e)}}>
-        <Form.Group>
+                    <div className="form-group">
+                        <label>first_name : </label>
+                        <input name="first_name" value={formSignUp.first_name} required onChange={(e) => { handleChange(e) }} />
+                    </div>
 
-         <Form.Label>First name :</Form.Label>
-         <Form.Control required type="text" placeholder="First name"
-                        name="first_name" value={formSignUp.first_name} onChange={(e) => {handleChange(e)}}
-                        />
-        
-        </Form.Group>
+                    <div className="form-group">
+                        <label>last_name : </label>
+                        <input name="last_name" value={formSignUp.last_name} required onChange={(e) => { handleChange(e) }} />
+                    </div>
 
-        <Form.Group >
-        <Form.Label>Last name :</Form.Label>
-        <Form.Control required type="text" placeholder="Last name"
-                        name="last_name" value={formSignUp.last_name} onChange={(e) => {handleChange(e)}}
-                        />
-        </Form.Group>
+                    <div className="form-group">
+                        <label>Email : </label>
+                        <input name="email" value={formSignUp.email} required onChange={(e) => { handleChange(e) }} />
+                    </div>
 
-        <Form.Group >
-        <Form.Label>Email :</Form.Label>
-        <Form.Control required type="email" placeholder="example@email.com"
-                        name="email" value={formSignUp.email} onChange={(e) => {handleChange(e)}}
-                        />
-        </Form.Group>
-       
-        <Form.Group >
-        <Form.Label>Password :</Form.Label>
-        <Form.Control required type="password" placeholder="Password"
-                        name="password" value={formSignUp.password} onChange={(e) => {handleChange(e)}}
-                        />
-        </Form.Group>
-        <Form.Group >
-        <Form.Label>Confirme Password :</Form.Label>
-        <Form.Control required type="password" placeholder="Confirme Password"
-                        name="password_confirmation" value={formSignUp.password_confirmation} onChange={(e) => {handleChange(e)}}
-                        />
-        </Form.Group>
-        <br/>
-        <Button type="submit">Submit</Button>
-        </Form>
+                    <div className="form-group">
+                        <label>Password : </label>
+                        <input type="password" name="password" value={formSignUp.password} required onChange={(e) => { handleChange(e) }} placeholder="Password" />
+                    </div>
+
+                    <div className="form-group">
+                        <label>password_confirmation : </label>
+                        <input type="password" name="password_confirmation" value={formSignUp.password_confirmation} required onChange={(e) => { handleChange(e) }} placeholder="password_confirmation" />
+                    </div>
+
+                    <button type="submit" className="btn btn-primary">
+                        Signup
+                    </button>
+                </form>
+            </div>
         </div>
+    </div>
     )
 }
 

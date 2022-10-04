@@ -23,14 +23,14 @@ function LandlordLogin() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    // fetch("/landlord_login", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({ "landlord": formDataIn }),
-    // }).then(res => res.json())
-    //   .then(result => console.log(result))
+    fetch("/landlord_login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ "landlord": formDataIn }),
+    }).then(res => res.json())
+      .then(res => localStorage.setItem("token", res.jwt))
 
   }
 
