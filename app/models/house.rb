@@ -12,7 +12,5 @@ class House < ApplicationRecord
     validates :house_type,          presence: true
     validates :num_beds,            presence: true
     validates :num_baths,           presence: true
-    validates :air_cond,            presence: true
-    validates :elevator,            presence: true
-    validates :furnished,           presence: true
+    
 end
