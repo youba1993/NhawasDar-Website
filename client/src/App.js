@@ -57,8 +57,7 @@ function App() {
       { signUpL? <LandlordSignUp />:""}
       { signUpU? <UserSignUp />:""}     
       
-      <LandlordHouses />
-      <CreateHouse />
+      
     </div>
     
   );
