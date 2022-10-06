@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   post '/user_login', to: 'auth#user_create'
   post '/landlord_login', to: 'auth#landlord_create'
   get '/landlord_index', to: 'houses#landlord_index'
-  get '/houses/adress', to: 'houses#show'
+  post '/houses/adress', to: 'houses#show'
 
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!

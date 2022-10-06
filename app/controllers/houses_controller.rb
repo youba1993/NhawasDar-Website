@@ -26,7 +26,7 @@ class HousesController < ApplicationController
   end
 
   def landlord_index
-    house = House.where(landlord_id: params[:landlord_id])
+    house = current_landlord.houses.all
     render json: house
   end
 
@@ -42,11 +42,11 @@ class HousesController < ApplicationController
 
   def destroy
     house = House.find_by(id: params[:id])
-    if house.valid?
-      house.delete
-      render json: {message: "deleted"}
+    if house
+      house.destroy
+      head :no_content
     else
-      render json: {error: "entre does not exist"}
+      render json: {error: "entre does not found"}, status: :not_found
     end
   end
 

@@ -1,21 +1,51 @@
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
+import { useState } from 'react';
+import HouseCard from './HouseCard';
+import HousesIndex from './HousesIndex';
 
-function MainPageSearch(){
-    return(
-        <Container>        
-            <Form className="d-flex">
-              <Form.Control
-                type="search"
-                placeholder="Search"
-                md={{ span: 3, offset: 3 }}
-                aria-label="Search"
-              />
-              <Button variant="outline-success">Search</Button>
-            </Form>
-        </Container>  
-    )
+function MainPageSearch() {
+  const [search, setSearch] = useState('');
+  const [result, setResult] = useState([]);
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    fetch("/houses/adress", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${localStorage.getItem("token")}`
+      },
+      body: JSON.stringify({ "adress": search }),
+    }).then((respense) => respense.json())
+      .then((res) => setResult(res))
+  }
+
+  return (
+    <>
+      <Container>
+        <Form className="d-flex" onSubmit={(e) => handleSubmit(e)}>
+          <Form.Control
+            type="search"
+            placeholder="Search"
+            md={{ span: 3, offset: 3 }}
+            aria-label="Search"
+            onChange={(e) => setSearch(e.target.value)}
+          />
+          <Button type="submit" variant="outline-success">Search</Button>
+        </Form>
+      </Container>
+
+      {result? <HousesIndex result={result} /> : "" }
+
+      {/* {result?  result.map((house)=>{
+       return <HouseCard key={house.id} house={house}/>
+      })
+      : ''} */}
+    </>
+  )
 
 }
 export default MainPageSearch;
