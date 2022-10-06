@@ -31,6 +31,7 @@ class HousesController < ApplicationController
   end
 
   def update
+    debugger
     house = House.find_by(id: params[:id])
     if house.valid?
       house.update(house_params)

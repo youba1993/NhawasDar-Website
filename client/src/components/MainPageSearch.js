@@ -2,7 +2,6 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import { useState } from 'react';
-import HouseCard from './HouseCard';
 import HousesIndex from './HousesIndex';
 
 function MainPageSearch() {

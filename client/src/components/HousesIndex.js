@@ -4,7 +4,7 @@ import CardGroup from 'react-bootstrap/CardGroup';
 import Row from 'react-bootstrap/Row';
 import HouseReviewLike from "./HouseReviewLike";
 function HousesIndex({ result }) {
-    const [houses, setHouses] = useState(result);
+    //const [houses, setHouses] = useState(result);
 
     
     //  useEffect(()=>{

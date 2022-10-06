@@ -51,7 +51,7 @@ class ApplicationController < ActionController::API
     if current_user
       render json: { user: UserSerializer.new(current_user) }, status: :accepted
     elsif current_landlord
-      render json: { user: LandlordSerializer.new(current_landlord) }, status: :accepted
+      render json: { landlord: LandlordSerializer.new(current_landlord) }, status: :accepted
     else false
     end
   end 
