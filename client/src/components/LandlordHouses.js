@@ -9,6 +9,7 @@ function LandlordHouses() {
     const [houses, setHouses] = useState([]);
 
     useEffect(() => {
+        let controller = new AbortController();
         fetch("/landlord_index", {
             method: "GET",
             headers: {
@@ -16,7 +17,8 @@ function LandlordHouses() {
                 "Authorization": `Bearer ${localStorage.getItem("token")}`
             },
         }).then(res => res.json())
-          .then(result => setHouses(result))
+          .then(result => result? setHouses(result): null)
+          return () => controller?.abort();
     }, [])
 
 

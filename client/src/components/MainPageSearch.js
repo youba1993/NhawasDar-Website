@@ -19,7 +19,12 @@ function MainPageSearch() {
       },
       body: JSON.stringify({ "adress": search }),
     }).then((respense) => respense.json())
-      .then((res) => setResult(res))
+      .then((res) => {
+        if (res.error)
+          setResult(false)
+        else
+          setResult(res)
+      })
   }
 
   return (
@@ -36,13 +41,10 @@ function MainPageSearch() {
           <Button type="submit" variant="outline-success">Search</Button>
         </Form>
       </Container>
-
-      {result? <HousesIndex result={result} /> : "" }
-
-      {/* {result?  result.map((house)=>{
-       return <HouseCard key={house.id} house={house}/>
-      })
-      : ''} */}
+      <br/>
+      <div id='result'>
+        {result ? <HousesIndex result={result} /> : <div className="error-container" style={{ color: 'red' }}>No entres for this Adress</div>}
+      </div>
     </>
   )
 

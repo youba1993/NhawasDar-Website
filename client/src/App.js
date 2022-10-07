@@ -8,7 +8,7 @@ import LandlordSignUp from './components/LandlordSignUp';
 import NavBar from './components/NavBar';
 import MainPageSearch from './components/MainPageSearch';
 import LandlordHouses from './components/LandlordHouses';
-import CreateHouse from './components/CreateHouse';
+
 
 
 function App() {
@@ -57,7 +57,7 @@ function App() {
       { signUpL? <LandlordSignUp />:""}
       { signUpU? <UserSignUp />:""}     
       
-      
+      <LandlordHouses />
     </div>
     
   );
