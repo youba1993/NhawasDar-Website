@@ -5,7 +5,6 @@ import Home from './components/home/Home';
 import {
   BrowserRouter as Router,
   Route,
-  Link,
   Routes
 } from "react-router-dom";
 import UserLogin from './components/auth/UserLogin';
@@ -13,7 +12,6 @@ import UserSignUp from './components/auth/UserSignUp';
 import LandlordLogin from './components/auth/LandlordLogin';
 import LandlordSignUp from './components/auth/LandlordSignUp';
 import CreateHouse from './components/landlord/CreateHouse';
-import LandlordHouses from './components/landlord/LandlordHouses';
 import Contract from './components/renter/Contract';
 
 function App() {
@@ -27,8 +25,8 @@ function App() {
           <Route path="/landlordLogin" element={<LandlordLogin />} />
           <Route path="/landlordSignup" element={<LandlordSignUp />} />
           <Route path="/landlord/addListing" element={ <CreateHouse />} />
-          {/* <Route path='/landlord/houses' element={ <LandlordHouses />} /> */}
-          <Route path='/renter/contract' element={ <Contract/>} />
+          {/* <Route path='/houses' element={ <HousesIndex />} />  */}
+          <Route path='/renter/contract' element={ <Contract/> } />
         </Routes>
       </Router>
     </div>

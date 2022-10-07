@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import Footer from '../home/Footer';
 import NavBar from '../home/NavBar';
 
 
@@ -27,12 +29,15 @@ function UserLogin() {
       },
       body: JSON.stringify({ "user": formDataIn }),
     }).then((res) => res.json())
-      .then((res) => localStorage.setItem("token", res.jwt))
+      .then((res) => {
+        localStorage.setItem("token", res.jwt)
+      })
   }
 
   return (
     <div className="p-5 bg-image" id="home">
       <NavBar />
+    
     <div className="col-md-6 offset-md-3 mt-5">
       <div className="card">
         <h4 className="card-header">Renter Login</h4>
@@ -53,6 +58,7 @@ function UserLogin() {
         </div>
       </div>
     </div>
+    <Footer />
     </div>
   )
 

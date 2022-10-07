@@ -5,13 +5,16 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Stack from 'react-bootstrap/Stack';
 import Button from 'react-bootstrap/Button';
+import { Link, useNavigate } from 'react-router-dom';
 
 function NavBar() {
   let currentUser = 1;
+  let navigate = useNavigate();
 
   const  handleLogout = (e)=>{
     localStorage.removeItem("token")
     currentUser = null
+    navigate("/");
   }
 
   const authButtons = () => {
@@ -19,13 +22,13 @@ function NavBar() {
       return (
         <Stack direction="horizontal" gap={2}>
           <DropdownButton size="sm" id="dropdown-basic-button" variant="secondary" title="Log In">
-            <Dropdown.Item >As Renter</Dropdown.Item>
-            <Dropdown.Item >As Landlord</Dropdown.Item>
+            <Dropdown.Item as={Link} to="/userLogin">As Renter</Dropdown.Item>
+            <Dropdown.Item as={Link} to="/landlordLogin">As Landlord</Dropdown.Item>
           </DropdownButton>
           <div className="vr" />
           <DropdownButton size="sm" id="dropdown-basic-button" variant="outline-danger" title="Sign Up">
-            <Dropdown.Item >As Renter</Dropdown.Item>
-            <Dropdown.Item >As Landlord</Dropdown.Item>
+            <Dropdown.Item as={Link} to="/userSignup">As Renter</Dropdown.Item>
+            <Dropdown.Item as={Link} to="/landlordSignup">As Landlord</Dropdown.Item> 
           </DropdownButton>
         </Stack>
       )
@@ -40,7 +43,7 @@ function NavBar() {
   return (
     <Navbar bg="light" expand="lg">
       <Container fluid>
-        <Navbar.Brand  href="#">NhawasDar</Navbar.Brand>
+        <Navbar.Brand  as={Link} to="/" >NhawasDar</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll" className=" justify-content-end">
 

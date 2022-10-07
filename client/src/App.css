@@ -46,3 +46,15 @@
         width: 100vw;
         height: 100vh
 }
+
+.footer{
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: static;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  color: aqua;
+  width: 100%;
+}

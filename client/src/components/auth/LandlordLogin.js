@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Footer from '../home/Footer';
 import NavBar from '../home/NavBar';
 
 
@@ -34,6 +35,7 @@ function LandlordLogin() {
   return (
     <div className="p-5 bg-image" id="home">
       <NavBar />
+      
     <div className="col-md-6 offset-md-3 mt-5">
       <div className="card">
         <h4 className="card-header">Landlord Login</h4>
@@ -54,6 +56,7 @@ function LandlordLogin() {
         </div>
       </div>
     </div>
+    <Footer/>
     </div>
   )
 

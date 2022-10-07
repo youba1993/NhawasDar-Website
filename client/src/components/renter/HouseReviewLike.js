@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import ToggleButton from 'react-bootstrap/ToggleButton';
-import Contract from './Contract';
+import { Link } from 'react-router-dom';
 import Reviews from './Reviews';
 
 
@@ -72,21 +72,23 @@ function HouseReviewLike({ id }) {
   // review handling --------------------------------------------------------------------
 
   const [show, setShow] = useState(false);
-  const [showContract, setShowContract] = useState(false);
-  
 
   //-----------------------------------------------------------------------------------
 
+
+
   return (
     <>
-      <Button variant="info" onClick={() => setShowContract(true)}>
-        Contract
-      </Button> {' '}
+      <Link to='/renter/contract'>
+        <Button variant="info" >
+          Contract
+        </Button>
+      </Link>
+      {' '}
       <Button variant="primary" onClick={() => setShow(true)}>
         Reviews
-      </Button> {' '}
-
-      {showContract ? <Contract setShowContract={setShowContract} showContract={showContract} id={id} /> : ""}
+      </Button>
+      {' '}
       {show ? <Reviews setShow={setShow} show={show} id={id} /> : ""}
       <LikeButton />
     </>

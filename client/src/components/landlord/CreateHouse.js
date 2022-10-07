@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Footer from "../home/Footer";
 import NavBar from "../home/NavBar";
 
 function CreateHouse({ house, update }) {
@@ -52,6 +53,7 @@ function CreateHouse({ house, update }) {
     return (
         <div className="p-5 bg-image" id="home">
             <NavBar />
+            
             <div className="form-group col-md-6 offset-md-3 mt-5">
                 <div className="card">
                     <h4 className="card-header">{house ? "Update house" : "Liste a new House"} </h4>
@@ -134,6 +136,7 @@ function CreateHouse({ house, update }) {
                     </div>
                 </div>
             </div>
+            <Footer />
         </div>
     )
 }
