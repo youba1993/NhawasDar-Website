@@ -1,7 +1,7 @@
 import HouseCard from "./HouseCard";
 import CardGroup from 'react-bootstrap/CardGroup';
 import Row from 'react-bootstrap/Row';
-import HouseReviewLike from "./HouseReviewLike";
+import HouseReviewLike from "../renter/HouseReviewLike";
 function HousesIndex({ result }) {
    
     return (

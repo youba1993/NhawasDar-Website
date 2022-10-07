@@ -8,7 +8,6 @@ class HousesController < ApplicationController
 
   def create
     house = current_landlord.houses.create(house_params)
-    debugger
     if house.valid?
       render json: { house: HouseSerializer.new(house) }, status: :created
     else
@@ -18,20 +17,23 @@ class HousesController < ApplicationController
 
   def show
     house = House.where(adress: params[:adress])
-    if house
+    if house != [] then 
       render json: house
     else
-      render json: {error: "No result for this Adress"}
+      render json: { error: "does't exist" }
     end
   end
 
   def landlord_index
+    if current_landlord
     house = current_landlord.houses.all
     render json: house
+    else
+      render json: false
+    end
   end
 
   def update
-    debugger
     house = House.find_by(id: params[:id])
     if house.valid?
       house.update(house_params)

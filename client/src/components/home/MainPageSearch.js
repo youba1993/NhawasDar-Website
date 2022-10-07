@@ -2,7 +2,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import { useState } from 'react';
-import HousesIndex from './HousesIndex';
+import HousesIndex from '../houses/HousesIndex';
 
 function MainPageSearch() {
   const [search, setSearch] = useState('');
@@ -30,9 +30,9 @@ function MainPageSearch() {
   return (
     <>
       <Container>
-        <Form className="d-flex" onSubmit={(e) => handleSubmit(e)}>
+        <Form className="d-flex justify-content-center" onSubmit={(e) => handleSubmit(e)}>
           <Form.Control
-            type="search"
+            type="search-form-control"
             placeholder="Search"
             md={{ span: 3, offset: 3 }}
             aria-label="Search"
@@ -42,9 +42,9 @@ function MainPageSearch() {
         </Form>
       </Container>
       <br/>
-      <div id='result'>
+      
         {result ? <HousesIndex result={result} /> : <div className="error-container" style={{ color: 'red' }}>No entres for this Adress</div>}
-      </div>
+   
     </>
   )
 

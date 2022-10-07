@@ -6,8 +6,7 @@ function HouseCard({house, HouseEditDelete, HouseReviewLike}){
   
 
     return (
-      <div >
-      <Card border="info" style={{ width: '18rem'}} >
+      <Card border="info" style={{ width: '19rem'}} >
     <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
     <Card.Body>
       <Card.Title>{house.house_type}</Card.Title>
@@ -27,7 +26,6 @@ function HouseCard({house, HouseEditDelete, HouseReviewLike}){
       { HouseReviewLike? <HouseReviewLike id={house.id}/> : "" }
     </Card.Body>
   </Card>
-      </div>
     )
 }
 

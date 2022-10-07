@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import HouseCard from "./HouseCard";
+import HouseCard from "../houses/HouseCard";
 import CardGroup from 'react-bootstrap/CardGroup';
 import Row from 'react-bootstrap/Row';
 import HouseEditDelete from "./HouseEditDelete";

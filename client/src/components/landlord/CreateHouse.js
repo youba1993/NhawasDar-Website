@@ -1,4 +1,5 @@
 import { useState } from "react";
+import NavBar from "../home/NavBar";
 
 function CreateHouse({ house, update }) {
 
@@ -7,11 +8,11 @@ function CreateHouse({ house, update }) {
         square_footage: house ? house.square_footage : 0,
         price: house ? house.price : 0,
         house_type: house ? house.house_type : "",
-        num_beds: house ? house.num_beds :  0,
+        num_beds: house ? house.num_beds : 0,
         num_baths: house ? house.num_baths : 0,
         air_cond: house ? house.air_cond : false,
-        elevator: house? house.elevator : false,
-        furnished: house? house.furnished : false
+        elevator: house ? house.elevator : false,
+        furnished: house ? house.furnished : false
     });
 
     function handleChange(event) {
@@ -42,19 +43,20 @@ function CreateHouse({ house, update }) {
 
     }
 
-    const handleUpdate = (e)=>{
+    const handleUpdate = (e) => {
         e.preventDefault();
         handleChange(e);
         update(listing);
     }
 
     return (
-        <>
+        <div className="p-5 bg-image" id="home">
+            <NavBar />
             <div className="form-group col-md-6 offset-md-3 mt-5">
                 <div className="card">
                     <h4 className="card-header">{house ? "Update house" : "Liste a new House"} </h4>
                     <div className="card-body">
-                        <form className="form-group col-md-6 offset-md-3 mt-5" onSubmit={(e) => { house ?  handleUpdate(e) : handleSubmit(e) }}>
+                        <form className="form-group col-md-6 offset-md-3 mt-5" onSubmit={(e) => { house ? handleUpdate(e) : handleSubmit(e) }}>
 
                             {house ? "" :
                                 <div className="form-group col-md-6">
@@ -66,7 +68,7 @@ function CreateHouse({ house, update }) {
 
                             <div className="form-group row">
                                 <label className="col-form-label">Adress : </label>
-                                <input className="form-control" name="adress" value={ listing.adress} required onChange={(e) => { handleChange(e) }} />
+                                <input className="form-control" name="adress" value={listing.adress} required onChange={(e) => { handleChange(e) }} />
                             </div>
 
                             <div className="form-group row">
@@ -76,7 +78,7 @@ function CreateHouse({ house, update }) {
 
                             <div className="form-group row">
                                 <label className="col-form-label">Price : </label>
-                                <input className="form-control" name="price" value={ listing.price} required onChange={(e) => { handleChange(e) }} />
+                                <input className="form-control" name="price" value={listing.price} required onChange={(e) => { handleChange(e) }} />
                             </div>
 
                             <div className="form-group row">
@@ -122,17 +124,17 @@ function CreateHouse({ house, update }) {
                                 <label className="custom-control-label">Furnished  </label>
                             </div>
 
-                            
-                                <button type="submit" className="btn btn-primary">
-                                   {house ? "Update house" :  "Add to listing" }
-                                </button>
-                            
+
+                            <button type="submit" className="btn btn-primary">
+                                {house ? "Update house" : "Add to listing"}
+                            </button>
+
 
                         </form>
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 

@@ -6,8 +6,8 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 import Stack from 'react-bootstrap/Stack';
 import Button from 'react-bootstrap/Button';
 
-function NavBar({ toggleLogInU, toggleLogInL, toggleSignUpU, toggleSignUpL }) {
-  let currentUser = null;
+function NavBar() {
+  let currentUser = 1;
 
   const  handleLogout = (e)=>{
     localStorage.removeItem("token")
@@ -15,17 +15,17 @@ function NavBar({ toggleLogInU, toggleLogInL, toggleSignUpU, toggleSignUpL }) {
   }
 
   const authButtons = () => {
-    if (currentUser == null) {
+    if (currentUser !== null) {
       return (
         <Stack direction="horizontal" gap={2}>
           <DropdownButton size="sm" id="dropdown-basic-button" variant="secondary" title="Log In">
-            <Dropdown.Item onClick={toggleLogInU}>As Renter</Dropdown.Item>
-            <Dropdown.Item onClick={toggleLogInL}>As Landlord</Dropdown.Item>
+            <Dropdown.Item >As Renter</Dropdown.Item>
+            <Dropdown.Item >As Landlord</Dropdown.Item>
           </DropdownButton>
           <div className="vr" />
           <DropdownButton size="sm" id="dropdown-basic-button" variant="outline-danger" title="Sign Up">
-            <Dropdown.Item onClick={toggleSignUpU}>As Renter</Dropdown.Item>
-            <Dropdown.Item onClick={toggleSignUpL}>As Landlord</Dropdown.Item>
+            <Dropdown.Item >As Renter</Dropdown.Item>
+            <Dropdown.Item >As Landlord</Dropdown.Item>
           </DropdownButton>
         </Stack>
       )

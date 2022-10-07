@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :landlords, only: [:create]
   resources :users, only: [:create]
   resources :house_likes, only: [:create, :show, :destroy]
+  resources :house_reviews, only: [:create, :show, :update ,:destroy]
 
   get '/profile', to: 'application#profile'
   post '/user_login', to: 'auth#user_create'

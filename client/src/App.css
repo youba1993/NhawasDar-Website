@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+#home {
+        background-image: url("https://www.nationsonline.org/gallery/Algeria/Assekrem-Hoggar-mountains-Algeria.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover ;
+        background-attachment: fixed;
+        width: 100vw;
+        height: 100vh
+}

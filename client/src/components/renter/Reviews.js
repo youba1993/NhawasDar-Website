@@ -61,8 +61,8 @@ return(
         </Offcanvas.Header>
         <Offcanvas.Body>
 
-           { reviews? reviews.map((review) => {
-            return <Alert key={review.id} onClose={() => handledelete()} variant="success" dismissible>{review.comment} </Alert>}
+           { reviews? reviews.map((review, index) => {
+            return <Alert key={index} onClose={() => handledelete()} variant="success" dismissible>{review.comment} </Alert>}
           ): null}        
 
           <Form.Group className="mb-3" >

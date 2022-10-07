@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import ToggleButton from 'react-bootstrap/ToggleButton';
+import Contract from './Contract';
 import Reviews from './Reviews';
 
 
@@ -71,19 +72,21 @@ function HouseReviewLike({ id }) {
   // review handling --------------------------------------------------------------------
 
   const [show, setShow] = useState(false);
-
-  const handleShow = () => {
-    setShow(true)
-  }
+  const [showContract, setShowContract] = useState(false);
+  
 
   //-----------------------------------------------------------------------------------
 
   return (
     <>
-      <Button variant="primary" onClick={() => handleShow()}>
+      <Button variant="info" onClick={() => setShowContract(true)}>
+        Contract
+      </Button> {' '}
+      <Button variant="primary" onClick={() => setShow(true)}>
         Reviews
-      </Button>
+      </Button> {' '}
 
+      {showContract ? <Contract setShowContract={setShowContract} showContract={showContract} id={id} /> : ""}
       {show ? <Reviews setShow={setShow} show={show} id={id} /> : ""}
       <LikeButton />
     </>

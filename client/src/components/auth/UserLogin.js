@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import NavBar from '../home/NavBar';
 
 
 function UserLogin() {
@@ -30,6 +31,8 @@ function UserLogin() {
   }
 
   return (
+    <div className="p-5 bg-image" id="home">
+      <NavBar />
     <div className="col-md-6 offset-md-3 mt-5">
       <div className="card">
         <h4 className="card-header">Renter Login</h4>
@@ -50,7 +53,7 @@ function UserLogin() {
         </div>
       </div>
     </div>
-
+    </div>
   )
 
 }
