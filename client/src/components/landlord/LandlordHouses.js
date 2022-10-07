@@ -3,6 +3,9 @@ import HouseCard from "../houses/HouseCard";
 import CardGroup from 'react-bootstrap/CardGroup';
 import Row from 'react-bootstrap/Row';
 import HouseEditDelete from "./HouseEditDelete";
+import NavBar from "../home/NavBar";
+import Footer from "../home/Footer";
+import { Link } from "react-router-dom";
 
 function LandlordHouses() {
 
@@ -17,21 +20,36 @@ function LandlordHouses() {
                 "Authorization": `Bearer ${localStorage.getItem("token")}`
             },
         }).then(res => res.json())
-          .then(result => result? setHouses(result): null)
-          return () => controller?.abort();
+            .then(result => setHouses(result))
+
+        return () => controller?.abort();
     }, [])
 
+    function listing() {
+        if (houses.length === 0) {
+            return  <Link to={"/landlord/addListing"} ><p>No listing for you, Click here to add Entree</p> </Link>
 
-    return (
-        <CardGroup>
-            <Row xs={2} md={3} className="g-3">
+        } else {
+            return <Row xs={2} md={3} className="g-3">
                 {
                     houses.map((house, index) => {
                         return <HouseCard key={index} house={house} HouseEditDelete={HouseEditDelete} />
                     })
                 }
             </Row>
-        </CardGroup>
+
+        }
+    }
+
+    return (
+        <div className="p-5 bg-image" id="home">
+            <NavBar />
+            <br/>
+            <CardGroup>
+                {listing()}
+            </CardGroup>
+            <Footer />
+        </div>
     )
 
 }

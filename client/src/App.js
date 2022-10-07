@@ -13,6 +13,7 @@ import LandlordLogin from './components/auth/LandlordLogin';
 import LandlordSignUp from './components/auth/LandlordSignUp';
 import CreateHouse from './components/landlord/CreateHouse';
 import Contract from './components/renter/Contract';
+import LandlordHouses from './components/landlord/LandlordHouses';
 
 function App() {
   return (
@@ -25,7 +26,7 @@ function App() {
           <Route path="/landlordLogin" element={<LandlordLogin />} />
           <Route path="/landlordSignup" element={<LandlordSignUp />} />
           <Route path="/landlord/addListing" element={ <CreateHouse />} />
-          {/* <Route path='/houses' element={ <HousesIndex />} />  */}
+          <Route path='/landlord/houses' element={ <LandlordHouses />} /> 
           <Route path='/renter/contract' element={ <Contract/> } />
         </Routes>
       </Router>

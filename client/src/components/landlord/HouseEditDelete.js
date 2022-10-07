@@ -3,7 +3,10 @@ import Card from 'react-bootstrap/Card';
 import React, { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import CreateHouse from './CreateHouse';
+import { useNavigate } from 'react-router-dom';
+
 function HouseEditDelete({ house }) {
+    let navigate = useNavigate();
 
     const [show, setShow] = useState(false);
 
@@ -16,24 +19,30 @@ function HouseEditDelete({ house }) {
                 "Content-Type": "application/json",
                 "Authorization": `Bearer ${localStorage.getItem("token")}`
             },
-        }).then(res => console.log(res));
+        }).then(res => {
+            if (res.ok) {
+                navigate(0)
+            } else {
+                alert(" Something Wrong ,Please Try Again ");
+            }
+        })
     }
 
     const handleUpdate = () => {
         setShow(true)
     }
 
-    function update(form){
-        fetch(`/houses/${house.id}`,{
+    function update(form) {
+        fetch(`/houses/${house.id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": `Bearer ${localStorage.getItem("token")}`
             },
-            body:JSON.stringify({ "house": form }),
-        }).then((res)=>res.json())
-          .then((res)=>console.log(res))
-          setShow(false)  
+            body: JSON.stringify({ "house": form }),
+        }).then((res) => res.json())
+            .then((res) => console.log(res))
+        setShow(false)
     }
 
 
@@ -45,10 +54,10 @@ function HouseEditDelete({ house }) {
             </Card.Body>
 
             <Modal show={show} onHide={handleClose}>
-                <Modal.Header closeButton/>
+                <Modal.Header closeButton />
                 <Modal.Body>
-                    <CreateHouse  house={house} update={update}/>
-                </Modal.Body>             
+                    <CreateHouse house={house} update={update} />
+                </Modal.Body>
             </Modal>
         </>
     )

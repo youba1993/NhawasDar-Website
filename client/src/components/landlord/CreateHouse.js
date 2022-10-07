@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Footer from "../home/Footer";
 import NavBar from "../home/NavBar";
 
 function CreateHouse({ house, update }) {
+    let navigate = useNavigate();
 
     const [listing, setlisting] = useState({
         adress: house ? house.adress : "",
@@ -39,9 +41,13 @@ function CreateHouse({ house, update }) {
                 "Authorization": `Bearer ${localStorage.getItem("token")}`
             },
             body: JSON.stringify({ "house": listing }),
-        }).then(res => res.json())
-            .then(result => console.log(result))
-
+        }).then(res => { 
+            if (res.ok){
+                    navigate("/landlord/houses")
+            }else{
+                alert(" Something Wrong ,Please Try Again ");
+            } 
+          })
     }
 
     const handleUpdate = (e) => {
@@ -51,7 +57,7 @@ function CreateHouse({ house, update }) {
     }
 
     return (
-        <div className="p-5 bg-image" id="home">
+        <div className="p-5 bg-image" id="home" >
             <NavBar />
             
             <div className="form-group col-md-6 offset-md-3 mt-5">

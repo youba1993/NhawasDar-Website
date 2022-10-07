@@ -20,17 +20,40 @@ function UserSignUp() {
         });
     }
 
+    const valid = formSignUp.password !== formSignUp.password_confirmation ? false : true
+    
+
+    function mismatched(){
+        const ulError = document.createElement("ul")
+        const liError = document.createElement("li")
+        liError.style.color = "red"
+        const textError = document.createTextNode("Password mismatched") 
+        liError.appendChild(textError)
+        ulError.appendChild(liError)
+        document.getElementById("formU").appendChild(ulError)
+    }
+
     function handleSubmit(event){
         event.preventDefault();
-        fetch("/users",{
+
+        if (valid){
+            fetch("/users",{
                 method: "POST",
                 headers:{
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({ "user" : formSignUp }),
-            }).then(res=>res.json())
-              .then(result=> console.log(result))
-    
+            }).then(res => {
+            if (res.ok){
+                    res.json()
+                    .then(result => console.log(result))
+            }else{
+                alert("Oops, something went wrong, Try Again ");
+            }
+        })    
+        }else{
+            mismatched()
+        }    
     }
 
     return (
@@ -40,7 +63,7 @@ function UserSignUp() {
         <div className="col-md-6 offset-md-3 mt-5">
         <div className="card">
             <h4 className="card-header">Renter Signup</h4>
-            <div className="card-body">
+            <div className="card-body" id="formU">
                 <form className="row row-cols-lg-auto g-3" onSubmit={(e) => { handleSubmit(e) }}>
 
                     <div className="form-group">

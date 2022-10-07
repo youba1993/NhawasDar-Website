@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import Form from 'react-bootstrap/Form';
 import Alert from 'react-bootstrap/Alert';
+import ErrorMessage from '../errors/ErrorMessages';
 
 export default function Reviews({show, setShow, id}){
     const [reviews, setReviews] = useState([])
@@ -18,7 +19,11 @@ export default function Reviews({show, setShow, id}){
               "Authorization": `Berear ${localStorage.getItem("token")}`
             },
           }).then((res) => res.json())
-            .then((resp) => setReviews(resp))
+            .then((resp) => {
+                  if (resp.message){
+                    return <ErrorMessage />
+                  }else setReviews(resp)
+            })
 
             return () => controller?.abort();
     },[])

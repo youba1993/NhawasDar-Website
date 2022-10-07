@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Footer from '../home/Footer';
 import NavBar from '../home/NavBar';
 
 
 function UserLogin() {
-
+  let navigate = useNavigate();
   const [formDataIn, setFormDataIn] = useState({
     email: "",
     password: ""
@@ -28,37 +28,44 @@ function UserLogin() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ "user": formDataIn }),
-    }).then((res) => res.json())
-      .then((res) => {
-        localStorage.setItem("token", res.jwt)
-      })
+    }).then(res => {
+      if (res.ok) {
+        res.json()
+          .then((res) => {
+            localStorage.setItem("token", res.jwt)
+            navigate("/")
+          })
+      } else {
+        alert("Wrong Email or Password,Please Try Again ");
+      }
+    })
   }
 
   return (
     <div className="p-5 bg-image" id="home">
       <NavBar />
-    
-    <div className="col-md-6 offset-md-3 mt-5">
-      <div className="card">
-        <h4 className="card-header">Renter Login</h4>
-        <div className="card-body">
-          <form onSubmit={(e) => { handleSubmit(e) }}>
-            <div className="form-group">
-              <label>Email</label>
-              <input name="email" value={formDataIn.email} required onChange={(e) => { handleChange(e) }} />
-            </div>
-            <div className="form-group">
-              <label>Password</label>
-              <input type="password" name="password" value={formDataIn.password} required onChange={(e) => { handleChange(e) }} placeholder="Password" />
-            </div>
-            <button type="submit" className="btn btn-primary">
-              Login
-            </button>
-          </form>
+
+      <div className="col-md-6 offset-md-3 mt-5">
+        <div className="card">
+          <h4 className="card-header">Renter Login</h4>
+          <div className="card-body">
+            <form onSubmit={(e) => { handleSubmit(e) }}>
+              <div className="form-group">
+                <label>Email</label>
+                <input name="email" value={formDataIn.email} required onChange={(e) => { handleChange(e) }} />
+              </div>
+              <div className="form-group">
+                <label>Password</label>
+                <input type="password" name="password" value={formDataIn.password} required onChange={(e) => { handleChange(e) }} placeholder="Password" />
+              </div>
+              <button type="submit" className="btn btn-primary">
+                Login
+              </button>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
-    <Footer />
+      <Footer />
     </div>
   )
 
