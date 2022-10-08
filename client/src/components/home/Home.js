@@ -9,7 +9,7 @@ function Home(){
 
   const landlordUser = ()=>{
     if (currentUser.landlord !== undefined){
-      return <h1 className="App-link">Welcome back to your Account {currentUser.landlord.first_name}</h1>
+      return <h1 className="App-link"> Welcome to your Account: {currentUser.landlord.first_name}</h1>
     }else return <MainPageSearch />
   }
 

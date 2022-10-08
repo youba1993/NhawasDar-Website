@@ -18,7 +18,7 @@ function HouseCard({ house, HouseEditDelete, HouseReviewLike }) {
     else {
       if (currentUser.user.id !== 0) {
         
-        return  <HouseReviewLike id={house.id}/>
+        return  <HouseReviewLike house={house}/>
         
       } 
     }

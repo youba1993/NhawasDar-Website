@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import ToggleButton from 'react-bootstrap/ToggleButton';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Reviews from './Reviews';
+import {HouseUpdate} from '../redux/actions/HouseActions'
 
-
-function HouseReviewLike({ id }) {
+function HouseReviewLike({ house }) {
+    const  dispatch = useDispatch();
 
   // like handling ---------------------------------------------------------------------
 
@@ -16,7 +18,7 @@ function HouseReviewLike({ id }) {
 
     useEffect(() => {
       let controller = new AbortController();
-      fetch(`/house_likes/${id}`, {
+      fetch(`/house_likes/${house.id}`, {
         method: 'GET',
         headers: {
           "Content-Type": "Application/json",
@@ -34,7 +36,7 @@ function HouseReviewLike({ id }) {
     const handleClick = () => {
       if (isClicked) {
         // Dislike
-        fetch(`/house_likes/${id}`, {
+        fetch(`/house_likes/${house.id}`, {
           method: 'DELETE',
           headers: {
             "Content-Type": "Application/json",
@@ -51,7 +53,7 @@ function HouseReviewLike({ id }) {
             "Content-Type": "Application/json",
             "Authorization": `Berear ${localStorage.getItem("token")}`
           },
-          body: JSON.stringify({ "id": id })
+          body: JSON.stringify({ "id": house.id })
         })
         setLikes(likes + 1);
         setChecked(!isClicked);
@@ -69,6 +71,10 @@ function HouseReviewLike({ id }) {
 
   //end like handling ------------------------------------------------------------------
 
+  function setContract(){
+      dispatch(HouseUpdate(house))
+  }
+
   // review handling --------------------------------------------------------------------
 
   const [show, setShow] = useState(false);
@@ -79,17 +85,17 @@ function HouseReviewLike({ id }) {
 
   return (
     <div>
-      <Link to='/renter/contract'>
-        <Button variant="info" >
+       <Link to="/renter/newcontract">
+        <Button variant="info" onClick={()=>setContract()}>
           Contract
         </Button>
-      </Link>
+        </Link>
       {' '}
       <Button variant="primary" onClick={() => setShow(true)}>
         Reviews
       </Button>
       {' '}
-      {show ? <Reviews setShow={setShow} show={show} id={id} /> : ""}
+      {show ? <Reviews setShow={setShow} show={show} id={house.id} /> : ""}
       <LikeButton />
     </div>
   )
