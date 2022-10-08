@@ -1,12 +1,10 @@
-import React, { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import { Link } from 'react-router-dom';
 
 export default function ErrorMessage() {
-    const [show, setShow] = useState(true)
-    const handleClose = () => setShow(false);
 
     return (
+        <div>
         <Modal >
             <Modal.Header closeButton>
                 <Modal.Title>Error Message</Modal.Title>
@@ -16,5 +14,6 @@ export default function ErrorMessage() {
                        <Link to={'/userSingup'}>Or create an account </Link> 
             </Modal.Body>
         </Modal>
+        </div>
     )
 }

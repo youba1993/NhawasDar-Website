@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Footer from '../home/Footer';
 import NavBar from '../home/NavBar';
+import { userLogin } from '../redux/actions/LoginAction';
 
 
 function LandlordLogin() {
+  const dispatch = useDispatch();
   let navigate = useNavigate();
   const [formDataIn, setFormDataIn] = useState({
     email: "",
@@ -33,6 +36,7 @@ function LandlordLogin() {
         res.json()
           .then((res) => {
             localStorage.setItem("token", res.jwt)
+            dispatch(userLogin(res))
             navigate("/")
           })
       } else {

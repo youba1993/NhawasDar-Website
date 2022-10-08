@@ -25,6 +25,7 @@ function MainPageSearch() {
         else
           setResult(res)
       })
+      window.history.pushState({info: "JS URL"}, 'search result', `/houses/adress = ${search}`);
   }
 
   return (

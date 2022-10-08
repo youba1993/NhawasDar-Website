@@ -6,19 +6,22 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 import Stack from 'react-bootstrap/Stack';
 import Button from 'react-bootstrap/Button';
 import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from '../redux/actions/LoginAction';
 
 function NavBar() {
-  let currentUser = 1;
+  let currentUser = useSelector((state)=> {return state});
+  let dispatch = useDispatch();
   let navigate = useNavigate();
 
   const  handleLogout = (e)=>{
     localStorage.removeItem("token")
-    currentUser = null
-    navigate("/");
+    dispatch(logout())
+    navigate(0);
   }
 
   const authButtons = () => {
-    if (currentUser !== null) {
+    if (currentUser.isLoggedIn !== true) {
       return (
         <Stack direction="horizontal" gap={2}>
           <DropdownButton size="sm" id="dropdown-basic-button" variant="secondary" title="Log In">
@@ -39,7 +42,7 @@ function NavBar() {
 
 
 
-
+//--------------------------------------------------------------------------------------------------
   return (
     <Navbar bg="light" expand="lg">
       <Container fluid>
@@ -56,4 +59,4 @@ function NavBar() {
 
 }
 
-export default NavBar;
+export default NavBar ;

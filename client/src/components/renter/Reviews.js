@@ -26,7 +26,7 @@ export default function Reviews({show, setShow, id}){
             })
 
             return () => controller?.abort();
-    },[])
+    },[id])
     
     function handledelete(){
         fetch(`/house_reviews/${id}`,{

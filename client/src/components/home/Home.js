@@ -12,7 +12,6 @@ function Home(){
         <NavBar />
         <br/>
         <MainPageSearch />
-
         <Footer/>
       </div>
 
