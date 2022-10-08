@@ -17,7 +17,7 @@ class HousesController < ApplicationController
 
   def show
     house = House.where(adress: params[:adress])
-    if house != [] then 
+    if house 
       render json: house
     else
       render json: { error: "does't exist" }

@@ -47,7 +47,7 @@ function HouseEditDelete({ house }) {
 
 
     return (
-        <>
+        <div>
             <Card.Body>
                 <Button variant="danger" onClick={(e) => handleDelete(e)}>Delete</Button>{' '}
                 <Button variant="outline-warning" onClick={handleUpdate}>Update</Button>
@@ -59,7 +59,7 @@ function HouseEditDelete({ house }) {
                     <CreateHouse house={house} update={update} />
                 </Modal.Body>
             </Modal>
-        </>
+        </div>
     )
 }
 export default HouseEditDelete;

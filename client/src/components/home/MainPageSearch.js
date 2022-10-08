@@ -18,14 +18,17 @@ function MainPageSearch() {
         "Authorization": `Bearer ${localStorage.getItem("token")}`
       },
       body: JSON.stringify({ "adress": search }),
-    }).then((respense) => respense.json())
-      .then((res) => {
-        if (res.error)
-          setResult(false)
-        else
-          setResult(res)
-      })
-      window.history.pushState({info: "JS URL"}, 'search result', `/houses/adress = ${search}`);
+    }).then((respense) => {
+      if (respense.ok) {
+        respense.json()
+          .then((res) => {
+            if (res.length === 0)
+              setResult(false)
+            else
+              setResult(res)
+          })
+      }
+    })
   }
 
   return (
@@ -42,10 +45,10 @@ function MainPageSearch() {
           <Button type="submit" variant="outline-success">Search</Button>
         </Form>
       </Container>
-      <br/>
-      
-        {result ? <HousesIndex result={result} /> : <div className="error-container" style={{ color: 'red' }}>No entres for this Adress</div>}
-   
+      <br />
+
+      {result ? <HousesIndex result={result} /> : <div className="error-container" style={{ color: 'red' }}>No entres for this Adress</div>}
+
     </>
   )
 

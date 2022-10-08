@@ -25,7 +25,7 @@
 }
 
 .App-link {
-  color: #61dafb;
+  color: #b370af;
 }
 
 @keyframes App-logo-spin {
@@ -42,7 +42,7 @@
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover ;
-        background-attachment: fixed;
+        background-attachment: scroll;
         width: 100vw;
         height: 100vh
 }

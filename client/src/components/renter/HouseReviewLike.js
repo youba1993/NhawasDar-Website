@@ -78,7 +78,7 @@ function HouseReviewLike({ id }) {
 
 
   return (
-    <>
+    <div>
       <Link to='/renter/contract'>
         <Button variant="info" >
           Contract
@@ -91,7 +91,7 @@ function HouseReviewLike({ id }) {
       {' '}
       {show ? <Reviews setShow={setShow} show={show} id={id} /> : ""}
       <LikeButton />
-    </>
+    </div>
   )
 }
 export default HouseReviewLike;
