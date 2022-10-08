@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 
 function Home(){
   const currentUser = useSelector((state)=> {return state.auth})
+
   const landlordUser = ()=>{
     if (currentUser.landlord !== undefined){
       return <h1 className="App-link">Welcome back to your Account {currentUser.landlord.first_name}</h1>

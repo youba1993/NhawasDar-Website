@@ -4,3 +4,9 @@ export const HouseUpdate = (house)=> {
             payload: house
         };
 };
+
+export const Zero = () => {
+    return {
+        type: "HOUSE/ZERO"
+    }
+} 

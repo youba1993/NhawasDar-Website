@@ -17,6 +17,9 @@ const HouseReducer = (state = houseState, action) => {
             return {
                 ...action.payload
             }
+        case "HOUSE/ZERO":
+            return houseState
+
         default:
             return state;
     }

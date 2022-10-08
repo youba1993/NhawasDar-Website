@@ -7,6 +7,7 @@ function HouseCard({ house, HouseEditDelete, HouseReviewLike }) {
 
 
   const currentUser = useSelector((state) => { return state.auth })
+  
 
   const cardOptions = () => {
     if (currentUser.user === undefined) {

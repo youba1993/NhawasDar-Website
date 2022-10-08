@@ -1,10 +1,19 @@
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Footer from "../home/Footer";
 import NavBar from "../home/NavBar";
+import { Zero } from "../redux/actions/HouseActions";
 
-function CreateHouse({ house, update }) {
+function CreateHouse() {
+
     let navigate = useNavigate();
+    let house = useSelector((state)=> state.house);
+    const dispatch = useDispatch();
+
+    if (house.id === 0){
+        house = false
+    }
 
     const [listing, setlisting] = useState({
         adress: house ? house.adress : "",
@@ -32,8 +41,6 @@ function CreateHouse({ house, update }) {
 
     function handleSubmit(event) {
         event.preventDefault();
-        console.log(listing)
-
         fetch("/houses", {
             method: "POST",
             headers: {
@@ -53,7 +60,21 @@ function CreateHouse({ house, update }) {
     const handleUpdate = (e) => {
         e.preventDefault();
         handleChange(e);
-        update(listing);
+        fetch(`/houses/${house.id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${localStorage.getItem("token")}`
+            },
+            body: JSON.stringify({ "house": listing }),
+        }).then(res => { 
+            if (res.ok){
+                    navigate("/landlord/houses")
+            }else{
+                alert(" Something Wrong ,Please Try Again ");
+            } 
+          })
+        dispatch(Zero())
     }
 
     return (

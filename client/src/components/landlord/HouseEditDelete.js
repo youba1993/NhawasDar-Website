@@ -1,16 +1,13 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import React, { useState } from 'react';
-import Modal from 'react-bootstrap/Modal';
-import CreateHouse from './CreateHouse';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { HouseUpdate } from '../redux/actions/HouseActions';
 
 function HouseEditDelete({ house }) {
     let navigate = useNavigate();
-
-    const [show, setShow] = useState(false);
-
-    const handleClose = () => setShow(false);
+    const dispatch = useDispatch()
 
     function handleDelete(event) {
         fetch(`/houses/${house.id}`, {
@@ -21,7 +18,7 @@ function HouseEditDelete({ house }) {
             },
         }).then(res => {
             if (res.ok) {
-                navigate(0)
+                navigate('/')
             } else {
                 alert(" Something Wrong ,Please Try Again ");
             }
@@ -29,36 +26,16 @@ function HouseEditDelete({ house }) {
     }
 
     const handleUpdate = () => {
-        setShow(true)
+        dispatch(HouseUpdate(house))
+        navigate("/landlord/addListing")
     }
-
-    function update(form) {
-        fetch(`/houses/${house.id}`, {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${localStorage.getItem("token")}`
-            },
-            body: JSON.stringify({ "house": form }),
-        }).then((res) => res.json())
-            .then((res) => console.log(res))
-        setShow(false)
-    }
-
 
     return (
         <div>
             <Card.Body>
                 <Button variant="danger" onClick={(e) => handleDelete(e)}>Delete</Button>{' '}
                 <Button variant="outline-warning" onClick={handleUpdate}>Update</Button>
-            </Card.Body>
-
-            <Modal show={show} onHide={handleClose}>
-                <Modal.Header closeButton />
-                <Modal.Body>
-                    <CreateHouse house={house} update={update} />
-                </Modal.Body>
-            </Modal>
+            </Card.Body>            
         </div>
     )
 }
