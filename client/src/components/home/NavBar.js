@@ -12,7 +12,7 @@ import Nav from 'react-bootstrap/Nav';
 
 
 function NavBar() {
-  let currentUser = useSelector((state) => { return state });
+  let currentUser = useSelector((state) => { return state.auth });
   let dispatch = useDispatch();
   let navigate = useNavigate();
   console.log(currentUser)
@@ -48,7 +48,7 @@ function NavBar() {
     if (currentUser.user === undefined) {
       return (
         <Nav className="me-auto">
-          <Nav.Link as={Link} to='landlord/addListing'>add Listing</Nav.Link>
+          <Nav.Link as={Link} to='/landlord/addListing'>add Listing</Nav.Link>
           <Nav.Link as={Link} to='/landlord/houses'>My Listing</Nav.Link>
         </Nav>
       )
