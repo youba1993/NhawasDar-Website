@@ -54,3 +54,5 @@ gem 'algerography'
 gem "jwt", "~> 2.5"
 
 gem "faker", "~> 2.19"
+
+gem 'net-smtp'
