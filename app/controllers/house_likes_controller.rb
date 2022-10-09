@@ -4,7 +4,11 @@ class HouseLikesController < ApplicationController
     def create
         count = HouseLike.where(house_id: like_params[:id]).length
         like = current_user.house_likes.create(house_id: like_params[:id],count: count+1 )
-        render json: like
+        if like.valid?
+            render json: like, status: :created
+          else
+            render json: { error: 'failed' }, status: :unprocessable_entity
+          end
     end
 
     def show 

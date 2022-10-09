@@ -14,9 +14,25 @@ export default function NewContract() {
 
     function createContract(){
         console.log(house)
-        
-        navigate("/renter/contract")
-        dispatch(Zero)
+        fetch("/contracts", {
+            method: 'POST',
+            headers: {
+              "Content-Type": "Application/json",
+              "Authorization": `Berear ${localStorage.getItem("token")}`
+            },
+            body: JSON.stringify({ "id": house.id, "amount": house.price })
+          }).then(res => {
+            if (res.ok) {
+              res.json()
+                .then((res) => {
+                  console.log(res)
+                  navigate("/renter/contract")
+                  dispatch(Zero)
+                })
+            } else {
+              alert("Something Wrong,You have an existing contract for this entre ");
+            }
+          }) 
     }
 
     function noContract(){
