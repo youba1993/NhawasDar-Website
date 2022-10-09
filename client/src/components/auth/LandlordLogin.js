@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Footer from '../home/Footer';
 import NavBar from '../home/NavBar';
-import { userLogin } from '../redux/actions/LoginAction';
+import { landlordLogin } from '../redux/actions/LoginAction';
 
 
 function LandlordLogin() {
@@ -36,7 +36,7 @@ function LandlordLogin() {
         res.json()
           .then((res) => {
             localStorage.setItem("token", res.jwt)
-            dispatch(userLogin(res))
+            dispatch(landlordLogin(res))
             navigate("/")
           })
       } else {

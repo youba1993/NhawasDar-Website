@@ -10,15 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[6.1].define(version: 2022_10_08_224716) do
-
+ActiveRecord::Schema[7.0].define(version: 2022_10_09_024720) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "contracts", force: :cascade do |t|
     t.float "rent_amount"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.bigint "house_id"
     t.bigint "landlord_id"
@@ -31,16 +30,16 @@ ActiveRecord::Schema[6.1].define(version: 2022_10_08_224716) do
     t.string "image_url"
     t.string "file_name"
     t.text "description"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.bigint "house_id"
     t.index ["house_id"], name: "index_house_images_on_house_id"
   end
 
   create_table "house_likes", force: :cascade do |t|
     t.integer "count"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.bigint "house_id"
     t.index ["house_id"], name: "index_house_likes_on_house_id"
@@ -49,8 +48,8 @@ ActiveRecord::Schema[6.1].define(version: 2022_10_08_224716) do
 
   create_table "house_reviews", force: :cascade do |t|
     t.text "comment"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.bigint "house_id"
     t.index ["house_id"], name: "index_house_reviews_on_house_id"
@@ -67,8 +66,8 @@ ActiveRecord::Schema[6.1].define(version: 2022_10_08_224716) do
     t.boolean "air_cond"
     t.boolean "elevator"
     t.boolean "furnished"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.bigint "landlord_id"
     t.index ["landlord_id"], name: "index_houses_on_landlord_id"
   end
@@ -80,8 +79,8 @@ ActiveRecord::Schema[6.1].define(version: 2022_10_08_224716) do
     t.string "email"
     t.integer "company_phone"
     t.string "password_digest"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -89,8 +88,8 @@ ActiveRecord::Schema[6.1].define(version: 2022_10_08_224716) do
     t.string "last_name"
     t.string "email"
     t.string "password_digest"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

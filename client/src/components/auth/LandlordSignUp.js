@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import Footer from '../home/Footer';
 import NavBar from '../home/NavBar';
+import { landlordLogin } from '../redux/actions/LoginAction';
 
 function LandlordSignUp() {
+    const dispatch = useDispatch();
+    let navigate = useNavigate();
 
     const [formSignUp, setFormSignUp] = useState({
         first_name: "",
@@ -15,18 +20,18 @@ function LandlordSignUp() {
     });
 
     const valid = formSignUp.password !== formSignUp.password_confirmation ? false : true
-    
 
-    function mismatched(){
+
+    function mismatched() {
         const ulError = document.createElement("ul")
         const liError = document.createElement("li")
         liError.style.color = "red"
-        const textError = document.createTextNode("Password mismatched") 
+        const textError = document.createTextNode("Password mismatched")
         liError.appendChild(textError)
         ulError.appendChild(liError)
         document.getElementById("form").appendChild(ulError)
     }
-    
+
 
     function handleChange(event) {
         const name = event.target.name;
@@ -39,22 +44,26 @@ function LandlordSignUp() {
 
     function handleSubmit(event) {
         event.preventDefault();
-        if (valid){
+        if (valid) {
             fetch("/landlords", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ "landlord": formSignUp }),
-        }).then(res => {
-            if (res.ok){
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ "landlord": formSignUp }),
+            }).then(res => {
+                if (res.ok) {
                     res.json()
-                    .then(result => console.log(result))
-            }else{
-                alert("Oops, something went wrong, Try Again ");
-            }
-        })    
-        }else{
+                        .then((res) => {
+                            localStorage.setItem("token", res.jwt)
+                            dispatch(landlordLogin(res))
+                            navigate("/")
+                        })
+                } else {
+                    alert("Oops, something went wrong, Try Again ");
+                }
+            })
+        } else {
             mismatched()
         }
     }
