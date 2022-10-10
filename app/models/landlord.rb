@@ -3,7 +3,6 @@ class Landlord < ApplicationRecord
     
     validates :email, uniqueness: true
     validates :company_name , uniqueness: true
-    validates :company_phone, uniqueness: true
 
     has_many :houses 
     has_many :contracts
