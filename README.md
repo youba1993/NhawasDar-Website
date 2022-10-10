@@ -2,7 +2,7 @@
 https://nhawasdar.herokuapp.com
 
 
-#Project Template: React/Rails API
+# Project Template: React/Rails API
 
 ## Description
 
