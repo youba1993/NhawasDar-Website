@@ -3,10 +3,12 @@ import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import { useState } from 'react';
 import HousesIndex from '../houses/HousesIndex';
+import { useNavigate } from 'react-router-dom';
 
 function MainPageSearch() {
   const [search, setSearch] = useState('');
   const [result, setResult] = useState([]);
+  const navigate = useNavigate();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -31,6 +33,10 @@ function MainPageSearch() {
     })
   }
 
+  function handleMap(){
+     navigate('/serach/map')
+    }
+
   return (
     <>
       <Container>
@@ -43,6 +49,7 @@ function MainPageSearch() {
             onChange={(e) => setSearch(e.target.value)}
           />
           <Button type="submit" variant="outline-success">Search</Button>
+          <Button type="button" variant="outline-dark" onClick={()=> handleMap()}>Map</Button>
         </Form>
       </Container>
       <br />

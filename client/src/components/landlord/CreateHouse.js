@@ -6,12 +6,12 @@ import NavBar from "../home/NavBar";
 import { Zero } from "../redux/actions/HouseActions";
 
 function CreateHouse() {
-
+    const states = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL','IN','IA','KS','KY','LA','ME','MD','MA','MI','MN','MS','MO','MT','NE','NV','NH','NJ','NM','NY','NC','ND','OH','OK','OR','PA','RI','SC','SD','TN','TX','UT','VT','VA','WA','WV','WI','WY']
     let navigate = useNavigate();
-    let house = useSelector((state)=> state.house);
+    let house = useSelector((state) => state.house);
     const dispatch = useDispatch();
 
-    if (house.id === 0){
+    if (house.id === 0) {
         house = false
     }
 
@@ -48,13 +48,13 @@ function CreateHouse() {
                 "Authorization": `Bearer ${localStorage.getItem("token")}`
             },
             body: JSON.stringify({ "house": listing }),
-        }).then(res => { 
-            if (res.ok){
-                    navigate("/landlord/houses")
-            }else{
+        }).then(res => {
+            if (res.ok) {
+                navigate("/landlord/houses")
+            } else {
                 alert(" Something Wrong ,Please Try Again ");
-            } 
-          })
+            }
+        })
     }
 
     const handleUpdate = (e) => {
@@ -67,20 +67,20 @@ function CreateHouse() {
                 "Authorization": `Bearer ${localStorage.getItem("token")}`
             },
             body: JSON.stringify({ "house": listing }),
-        }).then(res => { 
-            if (res.ok){
-                    navigate("/landlord/houses")
-            }else{
+        }).then(res => {
+            if (res.ok) {
+                navigate("/landlord/houses")
+            } else {
                 alert(" Something Wrong ,Please Try Again ");
-            } 
-          })
+            }
+        })
         dispatch(Zero())
     }
 
     return (
         <div className="p-5 bg-image" id="home" >
             <NavBar />
-            
+
             <div className="form-group col-md-6 offset-md-3 mt-5">
                 <div className="card">
                     <h4 className="card-header">{house ? "Update house" : "Liste a new House"} </h4>
@@ -94,20 +94,23 @@ function CreateHouse() {
                                 </div>
                             }
 
-
                             <div className="form-group row">
                                 <label className="col-form-label">Adress : </label>
-                                <input className="form-control" name="adress" value={listing.adress} required onChange={(e) => { handleChange(e) }} />
+                                <select className="form-control" name="adress" value={listing.adress} required onChange={(e) => { handleChange(e) }}>
+                                    {states.map((state, index) => {
+                                        return <option key={index}>{state}</option>
+                                    })}
+                                </select>
                             </div>
 
                             <div className="form-group row">
                                 <label className="col-form-label">Square Footage : </label>
-                                <input className="form-control" name="square_footage" value={listing.square_footage} required onChange={(e) => { handleChange(e) }} />
+                                <input className="form-control" name="square_footage" type="number" value={listing.square_footage} required onChange={(e) => { handleChange(e) }} />
                             </div>
 
                             <div className="form-group row">
                                 <label className="col-form-label">Price : </label>
-                                <input className="form-control" name="price" value={listing.price} required onChange={(e) => { handleChange(e) }} />
+                                <input className="form-control" name="price" type={"number"} value={listing.price} required onChange={(e) => { handleChange(e) }} />
                             </div>
 
                             <div className="form-group row">

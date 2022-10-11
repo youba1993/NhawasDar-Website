@@ -54,17 +54,19 @@ function UserLogin() {
           <h4 className="card-header">Renter Login</h4>
           <div className="card-body">
             <form onSubmit={(e) => { handleSubmit(e) }}>
-              <div className="form-group">
+              <div className="form-group row">
                 <label>Email</label>
                 <input name="email" value={formDataIn.email} required onChange={(e) => { handleChange(e) }} />
               </div>
-              <div className="form-group">
+              <div className="form-group row">
                 <label>Password</label>
                 <input type="password" name="password" value={formDataIn.password} required onChange={(e) => { handleChange(e) }} placeholder="Password" />
               </div>
-              <button type="submit" className="btn btn-primary">
-                Login
-              </button>
+              <div>
+                <button type="submit" className="btn btn-primary">
+                  Login
+                </button>
+              </div>
             </form>
           </div>
         </div>
