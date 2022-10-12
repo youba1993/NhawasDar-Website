@@ -37,6 +37,7 @@ function CreateHouse() {
             ...listing,
             [name]: value,
         });
+  
     }
 
     function handleSubmit(event) {
@@ -55,6 +56,7 @@ function CreateHouse() {
                 alert(" Something Wrong ,Please Try Again ");
             }
         })
+        console.log(listing)
     }
 
     const handleUpdate = (e) => {

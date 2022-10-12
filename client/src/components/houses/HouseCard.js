@@ -26,7 +26,7 @@ function HouseCard({ house, HouseEditDelete, HouseReviewLike }) {
 
   return (
     <Card border="info" style={{ width: '19rem' }} >
-      <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
+      <Card.Img variant="top"  />
       <Card.Body>
         <Card.Title>{house.house_type}</Card.Title>
         <Card.Text>
