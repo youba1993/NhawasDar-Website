@@ -13,7 +13,6 @@ export default function NewContract() {
   const navigate = useNavigate();
 
   function createContract() {
-    console.log(house)
     fetch("/contracts", {
       method: 'POST',
       headers: {
@@ -25,7 +24,6 @@ export default function NewContract() {
       if (res.ok) {
         res.json()
           .then((res) => {
-            console.log(res)
             navigate("/renter/contract")
             dispatch(Zero)
           })

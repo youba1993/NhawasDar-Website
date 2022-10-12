@@ -4,7 +4,7 @@ class House < ApplicationRecord
     has_many :house_images  , dependent: :destroy
     has_many :house_likes   , dependent: :destroy
     has_many :house_reviews , dependent: :destroy
-    has_one  :contracts     , dependent: :destroy
+    has_one  :contracts     
     
     validates :adress,              presence: true
     validates :square_footage,      presence: true
