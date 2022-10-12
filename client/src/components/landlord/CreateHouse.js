@@ -11,6 +11,7 @@ function CreateHouse() {
     let house = useSelector((state) => state.house);
     const dispatch = useDispatch();
 
+    console.log(house)
     if (house.id === 0) {
         house = false
     }
@@ -56,7 +57,7 @@ function CreateHouse() {
                 alert(" Something Wrong ,Please Try Again ");
             }
         })
-        console.log(listing)
+        dispatch(Zero())
     }
 
     const handleUpdate = (e) => {
@@ -76,6 +77,11 @@ function CreateHouse() {
                 alert(" Something Wrong ,Please Try Again ");
             }
         })
+        dispatch(Zero())
+    }
+
+    function handleCancel() {
+        navigate("/landlord/houses")
         dispatch(Zero())
     }
 
@@ -159,10 +165,15 @@ function CreateHouse() {
                                     <label className="custom-control-label">Furnished  </label>
                                 </div>
 
+                                <div className="form-group row">
+                                    <button type="submit" className="btn btn-primary">
+                                        {house ? "Update house" : "Add to listing"}
+                                    </button>
+                                    <button type="button" className="btn btn-danger" onClick={() => handleCancel()}>
+                                        Cancel
+                                    </button>
+                                </div>
 
-                                <button type="submit" className="btn btn-primary">
-                                    {house ? "Update house" : "Add to listing"}
-                                </button>
 
 
                             </form>

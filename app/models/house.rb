@@ -1,10 +1,10 @@
 class House < ApplicationRecord
     belongs_to :landlord
 
-    has_many :house_images
-    has_many :house_likes
-    has_many :house_reviews
-    has_one  :contracts
+    has_many :house_images  , dependent: :destroy
+    has_many :house_likes   , dependent: :destroy
+    has_many :house_reviews , dependent: :destroy
+    has_one  :contracts     , dependent: :destroy
     
     validates :adress,              presence: true
     validates :square_footage,      presence: true

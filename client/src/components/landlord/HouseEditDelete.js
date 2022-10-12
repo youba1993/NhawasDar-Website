@@ -3,7 +3,7 @@ import Card from 'react-bootstrap/Card';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { HouseUpdate } from '../redux/actions/HouseActions';
+import { HouseUpdate, Zero } from '../redux/actions/HouseActions';
 
 function HouseEditDelete({ house }) {
     let navigate = useNavigate();
@@ -18,6 +18,7 @@ function HouseEditDelete({ house }) {
             },
         }).then(res => {
             if (res.ok) {
+                dispatch(Zero())
                 navigate('/')
             } else {
                 alert(" Something Wrong ,Please Try Again ");
