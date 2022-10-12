@@ -55,11 +55,13 @@ export default function Contract() {
                 {contracts.map((contract) => {
                     return <Toast key={contract.id}>
                         <Toast.Header closeButton={false}>
-                            <img src="holder.js/20x20?text=%20" className="rounded me-2" alt="" />
                             <strong className="me-auto">Contract id : {contract.id}</strong>
                             <Button type="button" variant="danger" size="sm" value={contract.id} onClick={(e) => deleteContract(e)}> Delete </Button>
                         </Toast.Header>
-                        <Toast.Body>you submited this contract requeste the {contract.created_at.split('T')[0]} for the amount of {contract.rent_amount} $/month.</Toast.Body>
+                        <Toast.Body>
+                            <h6>you submited this contract requeste the {contract.created_at.split('T')[0]} for the amount of {contract.rent_amount} $/month.</h6>
+                            <h5>Status : {contract.validateContract ? `Approval in date ${contract.updated_at.split('T')[0]}` : "...Pending" }</h5>
+                        </Toast.Body>
                     </Toast>
                 })}
 

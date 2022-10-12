@@ -49,6 +49,7 @@ function NavBar() {
         <Nav className="me-auto">
           <Nav.Link as={Link} to='/landlord/addListing'>add Listing</Nav.Link>
           <Nav.Link as={Link} to='/landlord/houses'>My Listing</Nav.Link>
+          <Nav.Link as={Link} to='/landlord/contracts'>My Contracts</Nav.Link>
         </Nav>
       )
     }
@@ -56,8 +57,8 @@ function NavBar() {
       if (currentUser.user.id !== 0) {
         return (
           <Nav className="me-auto">
-            <Nav.Link as={Link} to='/renter/contract'>Contracts</Nav.Link>
-            <Nav.Link as={Link} to='/renter/likedhouses'>Favorites</Nav.Link>
+            <Nav.Link as={Link} to='/renter/contract'>My Contracts</Nav.Link>
+            <Nav.Link as={Link} to='/renter/likedhouses'>My Favorites</Nav.Link>
           </Nav>
         )
       } else return null

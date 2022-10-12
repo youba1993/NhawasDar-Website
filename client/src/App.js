@@ -15,6 +15,7 @@ import LandlordHouses from './components/landlord/LandlordHouses';
 import NewContract from './components/renter/NewContract';
 import MapState from './components/home/MapState';
 import LikedHouses from './components/renter/LikedHouses';
+import LandlordContracts from './components/landlord/LandlordContracts';
 
 function App() {
   return (
@@ -26,12 +27,13 @@ function App() {
           <Route path="/userSignup" element={<UserSignUp />} />
           <Route path="/landlordLogin" element={<LandlordLogin />} />
           <Route path="/landlordSignup" element={<LandlordSignUp />} />
-          <Route path="/landlord/addListing" element={ <CreateHouse />} />
-          <Route path='/landlord/houses' element={ <LandlordHouses />} /> 
-          <Route path='/renter/newcontract' element={ <NewContract /> }/>
-          <Route path='/renter/contract' element={ <Contract/> } />
-          <Route path='/serach/map' element={ <MapState /> } />
-          <Route path='/renter/likedhouses' element={  <LikedHouses />} />
+          <Route path="/landlord/addListing" element={<CreateHouse />} />
+          <Route path='/landlord/houses' element={<LandlordHouses />} />
+          <Route path='/renter/newcontract' element={<NewContract />} />
+          <Route path='/renter/contract' element={<Contract />} />
+          <Route path='/serach/map' element={<MapState />} />
+          <Route path='/renter/likedhouses' element={<LikedHouses />} />
+          <Route path='/landlord/contracts' element={<LandlordContracts />} />
         </Routes>
       </Router>
     </div>

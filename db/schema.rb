@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_09_024720) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_12_081258) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,6 +21,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_09_024720) do
     t.bigint "user_id"
     t.bigint "house_id"
     t.bigint "landlord_id"
+    t.boolean "validateContract"
     t.index ["house_id"], name: "index_contracts_on_house_id"
     t.index ["landlord_id"], name: "index_contracts_on_landlord_id"
     t.index ["user_id"], name: "index_contracts_on_user_id"

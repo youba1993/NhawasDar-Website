@@ -20,7 +20,7 @@ export default function NewContract() {
         "Content-Type": "Application/json",
         "Authorization": `Berear ${localStorage.getItem("token")}`
       },
-      body: JSON.stringify({ "id": house.id, "amount": house.price })
+      body: JSON.stringify({ "id": house.id, "amount": house.price, "validateContract": false })
     }).then(res => {
       if (res.ok) {
         res.json()
