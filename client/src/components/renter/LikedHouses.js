@@ -23,7 +23,7 @@ export default function LikedHouses() {
                 resp.json()
                     .then((res) => {
                         if (res.length === 0)
-                            setList(false)
+                            setList([])
                         else
                             setList(res)
                     })
@@ -33,20 +33,21 @@ export default function LikedHouses() {
         return () => controller?.abort();
     }, [])
 
-    console.log(list)
     return (
-        <div className="p-5 bg-image" id="home">
-            <NavBar />
-            <br/>
-        <CardGroup>
-            <Row xs={2} md={3} className="g-3">
-            {list.map((house, index) => {
-                return <HouseCard key={index} house={house.house} HouseReviewLike={HouseReviewLike} />
-            })
-            }
-        </Row>
-        </CardGroup >
-        <Footer />
+        <div>
+            <div className="p-5 bg-image" id="home">
+                <NavBar />
+                <br />
+                <CardGroup>
+                    <Row xs={2} md={3} className="g-3">
+                        {list.map((house, index) => {
+                            return <HouseCard key={index} house={house.house} HouseReviewLike={HouseReviewLike} />
+                        })
+                        }
+                    </Row>
+                </CardGroup >
+            </div>
+            <Footer />
         </div>
     )
 }

@@ -20,7 +20,7 @@ export default function Contract() {
                 res.json()
                     .then((res) => {
                         const newContracts = contracts.filter((contract) => contract.id !== res)
-                        setContracts(newContracts)                        
+                        setContracts(newContracts)
                     })
             } else {
                 alert("Something Wrong, Please Try Again");
@@ -39,7 +39,6 @@ export default function Contract() {
             if (res.ok) {
                 res.json()
                     .then((res) => {
-                        console.log(res)
                         setContracts(res)
                     })
             } else {
@@ -49,21 +48,22 @@ export default function Contract() {
     }, [])
 
     return (
-        <div className="p-5 bg-image" id="home">
-            <NavBar />
-            <br />
-            {contracts.map((contract) => {
-                return <Toast key={contract.id}>
-                    <Toast.Header closeButton={false}>
-                        <img src="holder.js/20x20?text=%20" className="rounded me-2" alt="" />
-                        <strong className="me-auto">Contract id : {contract.id}</strong>
-                        <Button type="button" variant="danger" size="sm" value={contract.id} onClick={(e) => deleteContract(e)}> Delete </Button>
-                    </Toast.Header>
-                    <Toast.Body>you submited this contract requeste the {contract.created_at.split('T')[0]} for the amount of {contract.rent_amount} $/month.</Toast.Body>
-                </Toast>
-            })}
+        <div>
+            <div className="p-5 bg-image" id="home">
+                <NavBar />
+                <br />
+                {contracts.map((contract) => {
+                    return <Toast key={contract.id}>
+                        <Toast.Header closeButton={false}>
+                            <img src="holder.js/20x20?text=%20" className="rounded me-2" alt="" />
+                            <strong className="me-auto">Contract id : {contract.id}</strong>
+                            <Button type="button" variant="danger" size="sm" value={contract.id} onClick={(e) => deleteContract(e)}> Delete </Button>
+                        </Toast.Header>
+                        <Toast.Body>you submited this contract requeste the {contract.created_at.split('T')[0]} for the amount of {contract.rent_amount} $/month.</Toast.Body>
+                    </Toast>
+                })}
 
-            <br />
+            </div>
             <Footer />
         </div>
     )

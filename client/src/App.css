@@ -1,59 +1,21 @@
-.App {
-  text-align: center;
-  background-color: aliceblue;
+#content-wrap {
+  padding-bottom: 2.5rem;    /* Footer height */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #b370af;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 
 #home {
-        background-image: url("https://www.nationsonline.org/gallery/Algeria/Assekrem-Hoggar-mountains-Algeria.jpg");
-        background-repeat: no-repeat;
+        background-image: url("https://img.wallpapersafari.com/desktop/1680/1050/41/42/2nolMH.jpg");
+        background-repeat: repeat;
         background-position: center;
         background-size: cover ;
         background-attachment: scroll;
-        width: 100vw;
-        height: 100vh
+        position: relative;
+        min-height: 100vh;
 }
 
 .footer{
-  margin-top: 1rem;
-  padding: 1rem;
   background-color: rgba(0, 0, 0, 0.5);
-  position: static;
-  bottom: 0;
+  position: absolute;
   left: 0;
   text-align: center;
   color: aqua;
@@ -63,4 +25,9 @@
 #chartdiv {
   width: 100%;
   height: 500px
+}
+
+#welcome {
+  text-align: center;
+  color: aqua;
 }

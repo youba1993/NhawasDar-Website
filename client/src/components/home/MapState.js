@@ -33,12 +33,15 @@ function MapState() {
 
 
     return (
-      <div className="p-5 bg-image">
+      <div>
+      <div className="p-5 bg-image" id="home">
         <NavBar />
+        <br/>
         <USAMap onClick={(e)=>mapHandler(e)} />
         <br/>
         <br/>
         {result ? <HousesIndex result={result} /> : <div className="error-container" style={{ color: 'red' }}>No entres for this Adress</div>}
+        </div>
         <Footer/>
       </div>
     );

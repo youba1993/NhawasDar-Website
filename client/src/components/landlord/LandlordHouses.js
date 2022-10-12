@@ -27,7 +27,7 @@ function LandlordHouses() {
 
     function listing() {
         if (houses.length === 0) {
-            return  <Link to={"/landlord/addListing"} ><p>No listing for you, Click here to add Entree</p> </Link>
+            return <Link to={"/landlord/addListing"} ><p>No listing for you, Click here to add Entree</p> </Link>
 
         } else {
             return <Row xs={2} md={3} className="g-3">
@@ -42,12 +42,14 @@ function LandlordHouses() {
     }
 
     return (
-        <div className="p-5 bg-image" id="home">
-            <NavBar />
-            <br/>
-            <CardGroup>
-                {listing()}
-            </CardGroup>
+        <div>
+            <div className="p-5 bg-image" id="home">
+                <NavBar />
+                <br />
+                <CardGroup>
+                    {listing()}
+                </CardGroup>
+            </div>
             <Footer />
         </div>
     )

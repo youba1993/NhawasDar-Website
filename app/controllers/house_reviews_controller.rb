@@ -15,7 +15,7 @@ class HouseReviewsController < ApplicationController
         if review
             render json: review
         else
-            render json: { error: "doesn't exist" }
+            render json: { error: "doesn't exist" }, status: :not_found
         end 
     end
 
@@ -25,7 +25,7 @@ class HouseReviewsController < ApplicationController
         review.update(review_params)
         render json: review
         else
-        render json: {error: "entre does not exist"}
+        render json: {error: "entre does not exist"}, status: :not_found
         end
     end
 
@@ -35,7 +35,7 @@ class HouseReviewsController < ApplicationController
             review.destroy
             render json: review_params[:id]
         else 
-            render json: {error: "doesn't exist"}
+            render json: {error: "doesn't exist"}, status: :not_found
         end 
     end
 

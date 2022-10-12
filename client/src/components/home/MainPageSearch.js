@@ -48,8 +48,8 @@ function MainPageSearch() {
             aria-label="Search"
             onChange={(e) => setSearch(e.target.value)}
           />
-          <Button type="submit" variant="outline-success">Search</Button>
-          <Button type="button" variant="outline-dark" onClick={()=> handleMap()}>Map</Button>
+          <Button type="submit" variant="success">Search</Button>
+          <Button type="button" variant="dark" onClick={()=> handleMap()}>Map</Button>
         </Form>
       </Container>
       <br />

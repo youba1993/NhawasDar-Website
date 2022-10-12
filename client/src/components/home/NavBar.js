@@ -68,7 +68,7 @@ function NavBar() {
   return (
     <Navbar bg="light" >
       <Container fluid>
-        <Navbar.Brand as={Link} to="/" >NhawasDar</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/" >RentEasy</Navbar.Brand>
         {userButtons()}
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="navbarScroll" className=" justify-content-end">

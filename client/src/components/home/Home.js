@@ -9,18 +9,23 @@ function Home(){
 
   const landlordUser = ()=>{
     if (currentUser.landlord !== undefined){
-      return <h1 className="App-link"> Welcome to your Account: {currentUser.landlord.first_name}</h1>
+      return <h1 id="welcome"> Welcome to your Account: {currentUser.landlord.first_name}</h1>
     }else return <MainPageSearch />
   }
 
     return (
+      <div>
       <div className="p-5 bg-image" id="home">
         <NavBar />
         <br/>
         {landlordUser()}
-        <Footer/>
+        </div> 
+      <div>
+      <Footer/>
       </div>
-
+        
+      
+      </div>
     )
 }
 export default Home;

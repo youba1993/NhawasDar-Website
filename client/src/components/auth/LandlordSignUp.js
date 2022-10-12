@@ -69,62 +69,65 @@ function LandlordSignUp() {
     }
 
     return (
-        <div className="p-5 bg-image" id="home">
-            <NavBar />
+        <div>
+            <div className="p-5 bg-image" id="home">
+                <NavBar />
 
-            <div className="col-md-6 offset-md-3 mt-5">
-                <div className="card">
-                    <h4 className="card-header">Landlord Signup</h4>
-                    <div className="card-body" id="form">
-                        <form className="row row-cols-lg-auto g-3" onSubmit={(e) => { handleSubmit(e) }}>
+                <div className="col-md-6 offset-md-3 mt-5">
+                    <div className="card">
+                        <h4 className="card-header">Landlord Signup</h4>
+                        <div className="card-body" id="form">
+                            <form className="row row-cols-lg-auto g-3" onSubmit={(e) => { handleSubmit(e) }}>
 
-                            <div className="form-group row">
-                                <label>first_name : </label>
-                                <input name="first_name" value={formSignUp.first_name} required onChange={(e) => { handleChange(e) }} />
-                            </div>
+                                <div className="form-group row">
+                                    <label>first_name : </label>
+                                    <input name="first_name" value={formSignUp.first_name} required onChange={(e) => { handleChange(e) }} />
+                                </div>
 
-                            <div className="form-group row">
-                                <label>last_name : </label>
-                                <input name="last_name" value={formSignUp.last_name} required onChange={(e) => { handleChange(e) }} />
-                            </div>
+                                <div className="form-group row">
+                                    <label>last_name : </label>
+                                    <input name="last_name" value={formSignUp.last_name} required onChange={(e) => { handleChange(e) }} />
+                                </div>
 
-                            <div className="form-group row">
-                                <label>company_name : </label>
-                                <input name="company_name" value={formSignUp.company_name} required onChange={(e) => { handleChange(e) }} />
-                            </div>
+                                <div className="form-group row">
+                                    <label>company_name : </label>
+                                    <input name="company_name" value={formSignUp.company_name} required onChange={(e) => { handleChange(e) }} />
+                                </div>
 
-                            <div className="form-group row">
-                                <label>company_phone : </label>
-                                <input name="company_phone" type={'tel'} value={formSignUp.company_phone} required onChange={(e) => { handleChange(e) }} />
-                            </div>
+                                <div className="form-group row">
+                                    <label>company_phone : </label>
+                                    <input name="company_phone" type={'tel'} value={formSignUp.company_phone} required onChange={(e) => { handleChange(e) }} />
+                                </div>
 
-                            <div className="form-group row">
-                                <label>Email : </label>
-                                <input name="email" type='email' value={formSignUp.email} required onChange={(e) => { handleChange(e) }} />
-                            </div>
+                                <div className="form-group row">
+                                    <label>Email : </label>
+                                    <input name="email" type='email' value={formSignUp.email} required onChange={(e) => { handleChange(e) }} />
+                                </div>
 
-                            <div className="form-group row">
-                                <label>Password : </label>
-                                <input type="password" name="password" value={formSignUp.password} required onChange={(e) => { handleChange(e) }} placeholder="Password" />
-                            </div>
+                                <div className="form-group row">
+                                    <label>Password : </label>
+                                    <input type="password" name="password" value={formSignUp.password} required onChange={(e) => { handleChange(e) }} placeholder="Password" />
+                                </div>
 
-                            <div className="form-group row">
-                                <label>password_confirmation : </label>
-                                <input type="password" name="password_confirmation" value={formSignUp.password_confirmation} required onChange={(e) => { handleChange(e) }} placeholder="password_confirmation" />
-                             
-                            </div>
+                                <div className="form-group row">
+                                    <label>password_confirmation : </label>
+                                    <input type="password" name="password_confirmation" value={formSignUp.password_confirmation} required onChange={(e) => { handleChange(e) }} placeholder="password_confirmation" />
 
-                            <div>
-                            <button type="submit" className="btn btn-primary">
-                                Signup
-                            </button>
-                            </div>
+                                </div>
+
+                                <div>
+                                    <button type="submit" className="btn btn-primary">
+                                        Signup
+                                    </button>
+                                </div>
 
 
 
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
+
             </div>
             <Footer />
         </div>
