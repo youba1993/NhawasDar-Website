@@ -20,7 +20,7 @@ class HousesController < ApplicationController
     if house 
       render json: house
     else
-      render json: { error: "does't exist" }
+      render json: { error: "does't exist" },  status: :not_found
     end
   end
 
@@ -39,7 +39,7 @@ class HousesController < ApplicationController
       house.update(house_params)
       render json: house
     else
-      render json: {error: "entre does not exist"}
+      render json: {error: "entre does not exist"}, status: :not_found
     end
   end
 

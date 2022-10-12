@@ -15,7 +15,6 @@ function NavBar() {
   let currentUser = useSelector((state) => { return state.auth });
   let dispatch = useDispatch();
   let navigate = useNavigate();
-  console.log(currentUser)
 
   const handleLogout = (e) => {
     localStorage.removeItem("token")
@@ -58,13 +57,12 @@ function NavBar() {
         return (
           <Nav className="me-auto">
             <Nav.Link as={Link} to='/renter/contract'>Contracts</Nav.Link>
+            <Nav.Link as={Link} to='/renter/likedhouses'>Favorites</Nav.Link>
           </Nav>
         )
       } else return null
     }
   }
-
-
 
   //--------------------------------------------------------------------------------------------------
   return (

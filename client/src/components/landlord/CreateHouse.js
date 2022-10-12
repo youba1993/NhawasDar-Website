@@ -16,12 +16,12 @@ function CreateHouse() {
     }
 
     const [listing, setlisting] = useState({
-        adress: house ? house.adress : "",
-        square_footage: house ? house.square_footage : 0,
-        price: house ? house.price : 0,
-        house_type: house ? house.house_type : "",
-        num_beds: house ? house.num_beds : 0,
-        num_baths: house ? house.num_baths : 0,
+        adress: house ? house.adress : "AL",
+        square_footage: house ? house.square_footage : 1,
+        price: house ? house.price : 1,
+        house_type: house ? house.house_type : "Apartments",
+        num_beds: house ? house.num_beds : 1,
+        num_baths: house ? house.num_baths : 1,
         air_cond: house ? house.air_cond : false,
         elevator: house ? house.elevator : false,
         furnished: house ? house.furnished : false

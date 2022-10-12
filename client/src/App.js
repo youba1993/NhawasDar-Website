@@ -14,6 +14,7 @@ import Contract from './components/renter/Contract';
 import LandlordHouses from './components/landlord/LandlordHouses';
 import NewContract from './components/renter/NewContract';
 import MapState from './components/home/MapState';
+import LikedHouses from './components/renter/LikedHouses';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path='/renter/newcontract' element={ <NewContract /> }/>
           <Route path='/renter/contract' element={ <Contract/> } />
           <Route path='/serach/map' element={ <MapState /> } />
+          <Route path='/renter/likedhouses' element={  <LikedHouses />} />
         </Routes>
       </Router>
     </div>

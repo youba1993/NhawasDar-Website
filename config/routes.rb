@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :houses
   resources :landlords, only: [:create]
   resources :users, only: [:create]
-  resources :house_likes, only: [:create, :show, :destroy]
+  resources :house_likes, only: [:create, :show, :destroy, :index]
   resources :house_reviews, only: [:create, :show, :update ,:destroy]
   resources :contracts, only: [:index, :create, :destroy]
 

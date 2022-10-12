@@ -1,13 +1,22 @@
 class HouseLikesController < ApplicationController
     wrap_parameters format: []
 
+    def index
+        like = current_user.house_likes.all 
+        if like
+        render json: like, include: [:house]
+        else 
+            render json: { error: 'failed' }, status: :unprocessable_entity
+        end
+    end
+
     def create
         count = HouseLike.where(house_id: like_params[:id]).length
         like = current_user.house_likes.create(house_id: like_params[:id],count: count+1 )
         if like.valid?
             render json: like, status: :created
           else
-            render json: { error: 'failed' }, status: :unprocessable_entity
+            render json: { error: 'failed' },  status: :not_found
           end
     end
 
