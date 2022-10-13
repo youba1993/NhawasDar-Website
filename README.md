@@ -1,5 +1,5 @@
 # Link to deployed Website:
-https://nhawasdar.herokuapp.com
+https://nhawasdari.herokuapp.com
 
 
 # Project Template: React/Rails API
