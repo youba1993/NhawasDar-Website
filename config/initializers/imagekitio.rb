@@ -6,9 +6,9 @@ ImageKitIo.configure do |config|
     end
 
     if Rails.env.production?
-        config.public_key = process.env.PUBLIC_KEY
-        config.private_key = process.env.PRIVATE_KEY
-        config.url_endpoint = process.env.URL_ENDPOINT
+        config.public_key = proc.env.PUBLIC_KEY
+        config.private_key = proc.env.PRIVATE_KEY
+        config.url_endpoint = proc.env.URL_ENDPOINT
       end
 
     config.service = :carrierwave
