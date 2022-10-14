@@ -24,7 +24,7 @@ function LandlordHouses() {
 
         return () => controller?.abort();
     }, [])
-
+    
     function listing() {
         if (houses.length === 0) {
             return <Link to={"/landlord/addListing"} ><p>No listing for you, Click here to add Entree</p> </Link>

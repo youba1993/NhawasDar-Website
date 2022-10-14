@@ -1,11 +1,12 @@
 const houseState = {
     id: 0,
     adress: "",
-    square_footage: 0,
-    price: 0,
+    square_footage: 1,
+    image_url: "",
+    price: 1,
     house_type: "",
-    num_beds: 0,
-    num_baths: 0,
+    num_beds: 1,
+    num_baths: 1,
     air_cond: false,
     elevator: false,
     furnished: false

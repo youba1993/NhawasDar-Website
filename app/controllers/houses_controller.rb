@@ -7,7 +7,8 @@ class HousesController < ApplicationController
   end
 
   def create
-    house = current_landlord.houses.create(house_params)
+    ex_params = House.ik_upload house_params
+    house = current_landlord.houses.create(ex_params)
     if house.valid?
       render json: { house: HouseSerializer.new(house) }, status: :created
     else
@@ -56,7 +57,7 @@ class HousesController < ApplicationController
   private
 
   def house_params
-    params.require(:house).permit(:adress, :square_footage, :price, :house_type, :num_beds, :num_baths, :air_cond, :elevator, :furnished) 
+    params.permit(:adress, :square_footage, :price, :house_type, :num_beds, :num_baths, :air_cond, :elevator, :furnished, :picture, :file_name) 
   end
 
 end

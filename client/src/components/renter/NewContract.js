@@ -44,7 +44,7 @@ export default function NewContract() {
       <br />
       <Toast>
         <Toast.Header closeButton={false}>
-          <img src="holder.js/20x20?text=%20" className="rounded me-2" alt="" />
+          <img className="rounded me-2" alt="" />
           <strong className="me-auto">new contract for House id : {house.id}</strong>
           <Button type="button" variant="success" size="sm" onClick={() => createContract()}> Confirm</Button>
           <Button type="button" variant="dark" size="sm" onClick={() => noContract()}> No</Button>
