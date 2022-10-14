@@ -15,7 +15,7 @@ function CreateHouse() {
     if (house.id === 0) {
         house = false
     }
-    console.log(house)
+
     let picture = useRef(null);
     const [listing, setlisting] = useState({
         file_name: house ? house.file_name : "",
@@ -71,7 +71,6 @@ function CreateHouse() {
             })
             dispatch(Zero())
         }
-        console.log(listing)
         const handleUpdate = (e) => {
             e.preventDefault();
             handleChange(e);
