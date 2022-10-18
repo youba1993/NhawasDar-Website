@@ -64,7 +64,7 @@ function HouseReviewLike({ house }) {
     return (
 
       <ToggleButton type="checkbox" variant="outline-danger" checked={checked} onClick={handleClick}>
-        <span className="likes-counter">{`Like | ${likes}`}</span>
+        <span className="likes-counter"><span class="material-symbols-outlined">favorite</span>{`${likes}`}</span>
       </ToggleButton>
     );
   };

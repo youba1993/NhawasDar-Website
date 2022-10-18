@@ -34,8 +34,8 @@ function HouseEditDelete({ house }) {
     return (
         <div>
             <Card.Body>
-                <Button variant="danger" onClick={(e) => handleDelete(e)}>Delete</Button>{' '}
-                <Button variant="outline-warning" onClick={handleUpdate}>Update</Button>
+                <Button variant="danger" onClick={(e) => handleDelete(e)}><span class="material-symbols-outlined">delete_forever</span>Delete</Button>{' '}
+                <Button variant="outline-warning" onClick={handleUpdate}><span class="material-symbols-outlined">update</span>Update</Button>
             </Card.Body>            
         </div>
     )
