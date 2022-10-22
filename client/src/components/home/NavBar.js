@@ -28,8 +28,8 @@ function NavBar() {
         <Stack direction="horizontal" gap={2}>
           <DropdownButton size="sm" id="dropdown-basic-button" variant="secondary" title="Log In">
           
-            <Dropdown.Item as={Link} to="/userLogin"><span class="material-symbols-outlined">login</span>Renter</Dropdown.Item>
-            <Dropdown.Item as={Link} to="/landlordLogin"><span class="material-symbols-outlined">login</span>Landlord</Dropdown.Item>
+            <Dropdown.Item as={Link} to="/userLogin"><span className="material-symbols-outlined">login</span>Renter</Dropdown.Item>
+            <Dropdown.Item as={Link} to="/landlordLogin"><span className="material-symbols-outlined">login</span>Landlord</Dropdown.Item>
           </DropdownButton>
           <div className="vr" />
           <DropdownButton size="sm" id="dropdown-basic-button" variant="outline-danger" title="Sign Up">
@@ -40,7 +40,7 @@ function NavBar() {
       )
     } else {
 
-      return <Button size="sm" variant="outline-danger" title="Log out" type="radio" onClick={(e) => handleLogout(e)}><span class="material-symbols-outlined">logout</span></Button>
+      return <Button size="sm" variant="outline-danger" title="Log out" type="radio" onClick={(e) => handleLogout(e)}><span className="material-symbols-outlined">logout</span></Button>
     }
   }
 
@@ -48,9 +48,9 @@ function NavBar() {
     if (currentUser.user === undefined) {
       return (
         <Nav className="me-auto">
-          <Nav.Link as={Link} to='/landlord/addListing'><span class="material-symbols-outlined">add_home</span>add Listing</Nav.Link>
-          <Nav.Link as={Link} to='/landlord/houses'><span class="material-symbols-outlined">house</span>My Listing</Nav.Link>
-          <Nav.Link as={Link} to='/landlord/contracts'><span class="material-symbols-outlined">receipt</span>My Contracts</Nav.Link>
+          <Nav.Link as={Link} to='/landlord/addListing'><span className="material-symbols-outlined">add_home</span>add Listing</Nav.Link>
+          <Nav.Link as={Link} to='/landlord/houses'><span className="material-symbols-outlined">house</span>My Listing</Nav.Link>
+          <Nav.Link as={Link} to='/landlord/contracts'><span className="material-symbols-outlined">receipt</span>My Contracts</Nav.Link>
         </Nav>
       )
     }
@@ -58,8 +58,8 @@ function NavBar() {
       if (currentUser.user.id !== 0) {
         return (
           <Nav className="me-auto">
-            <Nav.Link as={Link} to='/renter/contract'><span class="material-symbols-outlined">receipt</span>My Contracts</Nav.Link>
-            <Nav.Link as={Link} to='/renter/likedhouses'><span class="material-symbols-outlined">loyalty</span>My Favorites</Nav.Link>
+            <Nav.Link as={Link} to='/renter/contract'><span className="material-symbols-outlined">receipt</span>My Contracts</Nav.Link>
+            <Nav.Link as={Link} to='/renter/likedhouses'><span className="material-symbols-outlined">loyalty</span>My Favorites</Nav.Link>
           </Nav>
         )
       } else return null
@@ -70,7 +70,7 @@ function NavBar() {
   return (
     <Navbar bg="light" >
       <Container fluid>
-        <Navbar.Brand as={Link} to="/" > <span class="material-symbols-outlined">bolt</span>RentEasy</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/" > <span className="material-symbols-outlined">bolt</span>RentEasy</Navbar.Brand>
         {userButtons()}
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="navbarScroll" className=" justify-content-end">

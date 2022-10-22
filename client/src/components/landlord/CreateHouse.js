@@ -180,7 +180,7 @@ function CreateHouse() {
                                         <button type="submit" className="btn btn-primary">
                                             {house ? "Update house" : "Add to listing"}
                                         </button>
-                                        <button type="button" className="btn btn-danger" onClick={() => handleCancel()}><span class="material-symbols-outlined">cancel_presentation</span>
+                                        <button type="button" className="btn btn-danger" onClick={() => handleCancel()}><span className="material-symbols-outlined">cancel_presentation</span>
                                             Cancel
                                         </button>
                                     </div>

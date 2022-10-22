@@ -80,7 +80,7 @@ return (
                     return <Toast key={contract.id}>
                         <Toast.Header closeButton={false}>
                             <strong className="me-auto">Contract id : {contract.id}</strong>
-                            <Button type="button" variant="danger" size="sm" value={contract.id} onClick={(e) => deleteContract(e)}><span class="material-symbols-outlined">delete_forever</span> Delete </Button>
+                            <Button type="button" variant="danger" size="sm" value={contract.id} onClick={(e) => deleteContract(e)}><span className="material-symbols-outlined">delete_forever</span> Delete </Button>
                         </Toast.Header>
                         <Toast.Body>
                             <h6>contract requeste created {contract.created_at.split('T')[0]} for the amount of {contract.rent_amount} $/month.</h6>

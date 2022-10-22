@@ -39,7 +39,8 @@ export default function NewContract() {
   }
 
   return (
-    <div>       <div className="p-5 bg-image" id="home">
+    <div>      
+       <div className="p-5 bg-image" id="home">
       <NavBar />
       <br />
       <Toast>
