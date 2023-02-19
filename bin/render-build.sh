@@ -4,7 +4,7 @@ set -o errexit
 
 # Build commands for front end to create the production build
 rm -rf public
-npm install --prefix --legacy-peer-deps client && npm run build --prefix client
+npm install --legacy-peer-deps --prefix client && npm run build --prefix client
 cp -a client/build/. public/
 
 # Build commands for back end
