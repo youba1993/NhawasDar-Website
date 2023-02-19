@@ -1,6 +1,6 @@
 # Rental house : React/Rails API
 ## Link to deployed Website:
-https://nhawasdari.herokuapp.com
+https://RentEasy.onrender.com
 
 ## test Accounts :
 ### Landlord account test: 
