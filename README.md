@@ -1,6 +1,6 @@
 # Rental house : React/Rails API
 ## Link to deployed Website:
-https://RentEasy.onrender.com
+https://rent-h3q2.onrender.com
 
 ## test Accounts :
 ### Landlord account test: 
