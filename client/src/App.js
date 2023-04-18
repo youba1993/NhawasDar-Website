@@ -1,10 +1,12 @@
 import './App.css';
-import Home from './components/home/Home';
 import {
   BrowserRouter as Router,
   Route,
   Routes
 } from "react-router-dom";
+import NavBar from './components/home/NavBar';
+import Footer from './components/home/Footer';
+import Home from './components/home/Home';
 import UserLogin from './components/auth/UserLogin';
 import UserSignUp from './components/auth/UserSignUp';
 import LandlordLogin from './components/auth/LandlordLogin';
@@ -21,6 +23,7 @@ function App() {
   return (
     <div>
       <Router>
+        <NavBar />
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path="/userLogin" element={<UserLogin />} />
@@ -35,9 +38,9 @@ function App() {
           <Route path='/renter/likedhouses' element={<LikedHouses />} />
           <Route path='/landlord/contracts' element={<LandlordContracts />} />
         </Routes>
+        <Footer />
       </Router>
     </div>
-
   );
 }
 

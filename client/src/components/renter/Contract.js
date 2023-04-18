@@ -1,5 +1,4 @@
-import Footer from "../home/Footer";
-import NavBar from "../home/NavBar";
+
 import Toast from 'react-bootstrap/Toast';
 import { useEffect, useState } from "react";
 import Button from "react-bootstrap/esm/Button";
@@ -50,7 +49,6 @@ export default function Contract() {
     return (
         <div>
             <div className="p-5 bg-image" id="home">
-                <NavBar />
                 <br />
                 {contracts.map((contract) => {
                     return <Toast key={contract.id}>
@@ -66,7 +64,7 @@ export default function Contract() {
                 })}
 
             </div>
-            <Footer />
+ 
         </div>
     )
 }

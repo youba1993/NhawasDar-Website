@@ -6,28 +6,17 @@ import { useSelector } from "react-redux";
 import HomeCarousel from "./HomeCarrousel";
 
 function Home() {
-  const currentUser = useSelector((state) => { return state.auth })
-
-  const landlordUser = () => {
-    if (currentUser.landlord !== undefined) {
-      return <h1 id="welcome"> Welcome to your Account: {currentUser.landlord.first_name}</h1>
-    } else return <MainPageSearch />
-  }
+  const currentUser = useSelector(state => state.auth);
+  const landlord = currentUser.landlord;
 
   return (
     <div>
       <div className="p-5 bg-image" id="home">
-        <NavBar />
-        <br />
         <HomeCarousel />
-
-          { landlordUser() }
-        </div>
-      <div>
-        <Footer />
+        {landlord && <h1 id="welcome"> Welcome to your Account: {landlord.first_name}</h1>}
+        {!landlord && <MainPageSearch />}
       </div>
-
-
+      
     </div>
   )
 }

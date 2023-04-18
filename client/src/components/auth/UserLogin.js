@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import Footer from '../home/Footer';
-import NavBar from '../home/NavBar';
 import { userLogin } from '../redux/actions/LoginAction';
 
 
@@ -47,35 +45,54 @@ function UserLogin() {
 
   return (
     <div>
-      <div className="p-5 bg-image" id="home">
-        <NavBar />
-
-        <div className="col-md-6 offset-md-3 mt-5">
-          <div className="card">
-            <h4 className="card-header">Renter Login</h4>
-            <div className="card-body">
-              <form onSubmit={(e) => { handleSubmit(e) }}>
-                <div className="form-group row">
-                  <label>Email</label>
-                  <input name="email" value={formDataIn.email} required onChange={(e) => { handleChange(e) }} />
+      <div className="bg-image p-5" id="home">
+        <div className="container">
+          <div className="row justify-content-center mt-5">
+            <div className="col-md-6">
+              <div className="card">
+                <div className="card-header">
+                  <h4 className="mb-0 text-center">Renter Login</h4>
                 </div>
-                <div className="form-group row">
-                  <label>Password</label>
-                  <input type="password" name="password" value={formDataIn.password} required onChange={(e) => { handleChange(e) }} placeholder="Password" />
+                <div className="card-body">
+                  <form onSubmit={(e) => { handleSubmit(e) }}>
+                    <div className="form-group">
+                      <label htmlFor="email">Email</label>
+                      <input
+                        type="email"
+                        className="form-control"
+                        id="email"
+                        name="email"
+                        value={formDataIn.email}
+                        onChange={(e) => { handleChange(e) }}
+                        required
+                      />
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="password">Password</label>
+                      <input
+                        type="password"
+                        className="form-control"
+                        id="password"
+                        name="password"
+                        value={formDataIn.password}
+                        onChange={(e) => { handleChange(e) }}
+                        required
+                      />
+                    </div>
+                    <div className="form-group mt-3">
+                      <button type="submit" className="btn btn-primary">
+                        Login
+                      </button>
+                    </div>
+                  </form>
                 </div>
-                <div>
-                  <button type="submit" className="btn btn-primary">
-                    Login
-                  </button>
-                </div>
-              </form>
+              </div>
             </div>
           </div>
         </div>
       </div>
-
-      <Footer />
     </div>
+
   )
 
 }

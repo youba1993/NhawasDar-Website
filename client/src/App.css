@@ -1,40 +1,49 @@
+  body {
+    background: linear-gradient(to right, #FFF, #93b3e9);
+  }
+
 #content-wrap {
   padding-bottom: 2.5rem;    /* Footer height */
+  margin-bottom: 1rem;
 }
 
-
-#home {
-        background-image: url("https://img.wallpapersafari.com/desktop/1680/1050/41/42/2nolMH.jpg");
+/* #home {
+        background-image: url("https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80");
         background-repeat: repeat;
         background-position: center;
-        background-attachment: scroll;
+        background-attachment: fixed;
         position: relative;
         min-height: 100vh;
-}
+} */
 
 .footer{
   background-color: rgba(0, 0, 0, 0.5);
   position: absolute;
   left: 0;
   text-align: center;
-  color: aqua;
+  color: #00ffff;
   width: 100%;
+  background-color: #4d4d4d;
 }
 
 #chartdiv {
   width: 100%;
-  height: 500px
+  height: 600px;
+  margin: 0 auto;
 }
-
 #welcome {
   text-align: center;
-  color: aqua;
+  color: #00ffff;
+  font-weight: bold;
+  font-size: 1.5rem;
 }
-
 .material-symbols-outlined {
   font-variation-settings:
   'FILL' 0,
   'wght' 700,
   'GRAD' 0,
-  'opsz' 24
+  'opsz' 24;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
+

@@ -1,5 +1,4 @@
-import Footer from "../home/Footer";
-import NavBar from "../home/NavBar";
+
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Toast from 'react-bootstrap/Toast';
@@ -41,7 +40,7 @@ export default function NewContract() {
   return (
     <div>      
        <div className="p-5 bg-image" id="home">
-      <NavBar />
+  
       <br />
       <Toast>
         <Toast.Header closeButton={false}>
@@ -54,7 +53,6 @@ export default function NewContract() {
       </Toast>
     </div>
 
-      <Footer />
     </div>
   )
 }

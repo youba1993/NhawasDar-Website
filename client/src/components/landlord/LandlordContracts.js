@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-import Footer from "../home/Footer";
-import NavBar from "../home/NavBar";
 import Toast from 'react-bootstrap/Toast';
 import Button from "react-bootstrap/esm/Button";
 import { useNavigate } from "react-router-dom";
@@ -73,7 +71,7 @@ return (
     <>
         <div>
             <div className="p-5 bg-image" id="home">
-                <NavBar />
+                
 
                 <br />
                 {contracts.map((contract) => {
@@ -91,7 +89,7 @@ return (
 
 
             </div>
-            <Footer />
+            
         </div>
     </>
 )
