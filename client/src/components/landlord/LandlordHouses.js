@@ -3,8 +3,6 @@ import HouseCard from "../houses/HouseCard";
 import CardGroup from 'react-bootstrap/CardGroup';
 import Row from 'react-bootstrap/Row';
 import HouseEditDelete from "./HouseEditDelete";
-import NavBar from "../home/NavBar";
-import Footer from "../home/Footer";
 import { Link } from "react-router-dom";
 
 function LandlordHouses() {
@@ -44,13 +42,13 @@ function LandlordHouses() {
     return (
         <div>
             <div className="p-5 bg-image" id="home">
-                <NavBar />
+                
                 <br />
                 <CardGroup>
                     {listing()}
                 </CardGroup>
             </div>
-            <Footer />
+            
         </div>
     )
 

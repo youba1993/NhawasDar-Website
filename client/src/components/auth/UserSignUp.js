@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import Footer from '../home/Footer';
-import NavBar from '../home/NavBar';
 import { userLogin } from '../redux/actions/LoginAction';
 
 function UserSignUp() {
@@ -67,54 +65,101 @@ function UserSignUp() {
     }
 
     return (
-        <div>
-            <div className="p-5 bg-image" id="home">
-                <NavBar />
-
-                <div className="col-md-6 offset-md-3 mt-5">
-                    <div className="card">
-                        <h4 className="card-header">Renter Signup</h4>
-                        <div className="card-body" id="formU">
-                            <form className="row row-cols-lg-auto g-3" onSubmit={(e) => { handleSubmit(e) }}>
-
-                                <div className="form-group row">
-                                    <label>first_name : </label>
-                                    <input name="first_name" value={formSignUp.first_name} required onChange={(e) => { handleChange(e) }} />
-                                </div>
-
-                                <div className="form-group row">
-                                    <label>last_name : </label>
-                                    <input name="last_name" value={formSignUp.last_name} required onChange={(e) => { handleChange(e) }} />
-                                </div>
-
-                                <div className="form-group row">
-                                    <label>Email : </label>
-                                    <input name="email" type={'email'} value={formSignUp.email} required onChange={(e) => { handleChange(e) }} />
-                                </div>
-
-                                <div className="form-group row">
-                                    <label>Password : </label>
-                                    <input type="password" name="password" value={formSignUp.password} required onChange={(e) => { handleChange(e) }} placeholder="Password" />
-                                </div>
-
-                                <div className="form-group row">
-                                    <label>password_confirmation : </label>
-                                    <input type="password" name="password_confirmation" value={formSignUp.password_confirmation} required onChange={(e) => { handleChange(e) }} placeholder="password_confirmation" />
-                                </div>
-
-                                <div>
-                                    <button type="submit" className="btn btn-primary">
-                                        Signup
-                                    </button>
-                                </div>
-
-                            </form>
+        <div className="bg-image p-5" id="home">
+            <div className="container">
+                <div className="row justify-content-center mt-5">
+                    <div className="col-md-6">
+                        <div className="card border-0 shadow-sm">
+                            <div className="card-header bg-transparent">
+                                <h4 className="mb-0 text-center">Renter Signup</h4>
+                            </div>
+                            <div className="card-body">
+                                <form onSubmit={handleSubmit}>
+                                    <div className="row mb-3">
+                                        <div className="col-md-6">
+                                            <label htmlFor="firstName" className="form-label">
+                                                First Name
+                                            </label>
+                                            <input
+                                                type="text"
+                                                className="form-control"
+                                                id="firstName"
+                                                name="first_name"
+                                                value={formSignUp.first_name}
+                                                onChange={handleChange}
+                                                required
+                                            />
+                                        </div>
+                                        <div className="col-md-6">
+                                            <label htmlFor="lastName" className="form-label">
+                                                Last Name
+                                            </label>
+                                            <input
+                                                type="text"
+                                                className="form-control"
+                                                id="lastName"
+                                                name="last_name"
+                                                value={formSignUp.last_name}
+                                                onChange={handleChange}
+                                                required
+                                            />
+                                        </div>
+                                    </div>
+                                    <div className="mb-3">
+                                        <label htmlFor="email" className="form-label">
+                                            Email
+                                        </label>
+                                        <input
+                                            type="email"
+                                            className="form-control"
+                                            id="email"
+                                            name="email"
+                                            value={formSignUp.email}
+                                            onChange={handleChange}
+                                            required
+                                        />
+                                    </div>
+                                    <div className="mb-3">
+                                        <label htmlFor="password" className="form-label">
+                                            Password
+                                        </label>
+                                        <input
+                                            type="password"
+                                            className="form-control"
+                                            id="password"
+                                            name="password"
+                                            value={formSignUp.password}
+                                            onChange={handleChange}
+                                            required
+                                        />
+                                    </div>
+                                    <div className="mb-3">
+                                        <label htmlFor="passwordConfirmation" className="form-label">
+                                            Confirm Password
+                                        </label>
+                                        <input
+                                            type="password"
+                                            className="form-control"
+                                            id="passwordConfirmation"
+                                            name="password_confirmation"
+                                            value={formSignUp.password_confirmation}
+                                            onChange={handleChange}
+                                            required
+                                        />
+                                    </div>
+                                    <div className="form-group mt-4">
+                                        <button type="submit" className="btn btn-primary btn-block">
+                                            Sign Up
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <Footer />
         </div>
+
     )
 }
 

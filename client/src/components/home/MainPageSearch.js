@@ -10,7 +10,7 @@ function MainPageSearch() {
   const [result, setResult] = useState([]);
   const navigate = useNavigate();
 
-  function handleSubmit(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     fetch("/houses/adress", {
@@ -20,27 +20,28 @@ function MainPageSearch() {
         "Authorization": `Bearer ${localStorage.getItem("token")}`
       },
       body: JSON.stringify({ "adress": search }),
-    }).then((respense) => {
-      if (respense.ok) {
-        respense.json()
-          .then((res) => {
-            if (res.length === 0)
-              setResult(false)
-            else
-              setResult(res)
-          })
-      }
     })
+      .then((respense) => {
+        if (respense.ok) {
+          respense.json()
+            .then((res) => {
+              if (res.length === 0)
+                setResult(false)
+              else
+                setResult(res)
+            })
+        }
+      })
   }
 
-  function handleMap(){
-     navigate('/serach/map')
-    }
+  const handleMap = () => {
+    navigate('/serach/map')
+  }
 
   return (
     <>
       <Container>
-        <Form className="d-flex justify-content-center" onSubmit={(e) => handleSubmit(e)}>
+        <Form className="d-flex justify-content-center" onSubmit={handleSubmit}>
           <Form.Control
             type="search-form-control"
             placeholder="Search"
@@ -49,7 +50,7 @@ function MainPageSearch() {
             onChange={(e) => setSearch(e.target.value)}
           />
           <Button type="submit" variant="success">Search</Button>
-          <Button type="button" variant="dark" onClick={()=> handleMap()}>Map</Button>
+          <Button type="button" variant="dark" onClick={handleMap}>Map</Button>
         </Form>
       </Container>
       <br />

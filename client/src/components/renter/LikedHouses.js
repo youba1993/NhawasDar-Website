@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import CardGroup from 'react-bootstrap/CardGroup';
 import Row from 'react-bootstrap/Row';
-import Footer from "../home/Footer";
-import NavBar from "../home/NavBar";
 import HouseCard from "../houses/HouseCard";
 import HouseReviewLike from './HouseReviewLike'
 
@@ -36,7 +34,7 @@ export default function LikedHouses() {
     return (
         <div>
             <div className="p-5 bg-image" id="home">
-                <NavBar />
+          
                 <br />
                 <CardGroup>
                     <Row xs={2} md={3} className="g-3">
@@ -47,7 +45,7 @@ export default function LikedHouses() {
                     </Row>
                 </CardGroup >
             </div>
-            <Footer />
+    
         </div>
     )
 }
